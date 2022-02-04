@@ -1,0 +1,24 @@
+{
+  "name": "sports-fest-2022-iiti_backend",
+  "version": "1.0.0",
+  "description": "Backend for the official Sports Fest Website, IIT Indore",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BulzEye/sports-fest-2022-iiti.git"
+  },
+  "author": "Jai Surya Katla, Aditi Thakur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BulzEye/sports-fest-2022-iiti/issues"
+  },
+  "homepage": "https://github.com/BulzEye/sports-fest-2022-iiti#readme",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "mongoose": "^6.2.0"
+  }
+}
