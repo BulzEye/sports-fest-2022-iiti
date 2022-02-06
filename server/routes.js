@@ -1,11 +1,10 @@
-const express = require('express')
+const express = require('express');
 const mongoose = require('mongoose');
-const router = express.Router;
+const router = express.Router();
 
 //route handlers
 router.get('/events', (req, res, next) => {
+    res.status(200).end();
+});
 
-})
-
-modules.export = router
-
+module.exports = router;
