@@ -2,7 +2,7 @@ import "./Navbar.css";
 
 const Navbar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
             <div className="container-fluid container">
                 <a className="navbar-brand" href="#">SportFest</a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,13 +11,13 @@ const Navbar = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <a className="nav-link active" aria-current="page" href="#">LAKSHYA 2022</a>
+                            <a className="nav-link active" aria-current="page" href="#header">LAKSHYA 2022</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">About</a>
+                            <a className="nav-link" href="#about">About</a>
                         </li>
                         <li className="nav-item dropdown">
-                            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <a className="nav-link dropdown-toggle" href="#events" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Events
                             </a>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -30,16 +30,16 @@ const Navbar = () => {
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Schedule</a>
+                            <a className="nav-link" href="#schedule">Schedule</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Sponsors</a>
+                            <a className="nav-link" href="#sponsors">Sponsors</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Partners</a>
+                            <a className="nav-link" href="#partners">Partners</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" href="#">Contact</a>
+                            <a className="nav-link" href="#contact">Contact</a>
                         </li>
                     </ul>
                 </div>

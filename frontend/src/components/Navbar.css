@@ -1,6 +1,7 @@
-/* nav {
-    height: 7%;
-} */
+nav {
+    height: 70px;
+}
+
 .navbar-nav a {
     font-family: poppins;
     font-size: 18px;
