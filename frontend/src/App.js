@@ -6,6 +6,7 @@ import Navbar from './components/Navbar';
 import Loader from './components/loader/Loader';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Routes, Route } from 'react-router-dom'
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -16,7 +17,9 @@ function App() {
       .then(res => {
         setData(res.data)
         setIsLoading(false)
-        console.log(res)
+      })
+      .catch(err=>{
+        console.log(err)
       })
   }, [])
 
@@ -24,9 +27,13 @@ function App() {
     <div className="App">
       <Navbar />
       {isLoading && <Loader />}
-      {!isLoading && <HomeBody data={data} />}
-      {/* <Loader /> */}
-      {/* <HomeBody /> */}
+      {!isLoading &&
+        <Routes>
+          <Route path='/' element={<HomeBody data={data} />} />
+          {/* More Routes */}
+          {/* More Routes */}
+          {/* More Routes */}
+        </Routes>}
       {/* <SponsorsBody /> */}
       {/* <TailSpin color="#00BFFF" height={80} width={80} /> */}
     </div>
