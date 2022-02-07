@@ -10,7 +10,8 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(err.message)
     });
 
-//Parser and routing
+//Parser and routing and CORS
+app.use(require('cors')())
 app.use(express.json());
 app.use('/api', require('./routes'));
 
