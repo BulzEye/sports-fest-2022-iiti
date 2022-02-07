@@ -1,19 +1,15 @@
-import { useState } from "react";
 import Event from "./Event";
 import "./HomeBody.css";
 
-import eventList from "../../testData/events";
-import sponsorList from "../../testData/sponsors";
-import partnerList from "../../testData/partners";
 import Sponsor from "./Sponsor";
 import Partner from "./Partner";
 
-const HomeBody = () => {
-    const [events, setEvents] = useState(eventList);
-    const [sponsors, setSponsors] = useState(sponsorList);
-    const [partners, setPartners] = useState(partnerList);
+const HomeBody = (props) => {
+    const { events } = props.data;
+    const { partners } = props.data;
+    const { sponsors } = props.data;
 
-    return ( 
+    return (
         <div className="homeBody">
             <div className="container-fluid" id="header">
                 <div className="container py-5">
@@ -43,7 +39,7 @@ const HomeBody = () => {
                         </div> */}
 
                         {events.map((event) => (
-                            <div className="col">
+                            <div className="col" key={event._id}>
                                 <Event data={event} />
                             </div>
                         ))}
@@ -51,7 +47,7 @@ const HomeBody = () => {
                     </div>
                     {/* Will potentially use cards for the events page, WIP - DONE */}
                     {/* TODO: Use flexbox, align cards in centre, set col-lg-3, col-md-4 etc... */}
-                
+
                 </div>
             </div>
             <div className="container-fluid py-5" id="schedule">
@@ -70,11 +66,11 @@ const HomeBody = () => {
                         </div> */}
 
                         {sponsors.map((sponsor) => (
-                            <div className="col text-center">
+                            <div className="col text-center" key={sponsor._id}>
                                 <Sponsor data={sponsor} />
                             </div>
                         ))}
-                        
+
                     </div>
                 </div>
             </div>
@@ -89,7 +85,7 @@ const HomeBody = () => {
                         </div> */}
 
                         {partners.map((partner) => (
-                            <div className="col text-center">
+                            <div className="col text-center" key={partner._id}>
                                 <Partner data={partner} />
                             </div>
                         ))}
@@ -97,7 +93,7 @@ const HomeBody = () => {
                 </div>
             </div>
         </div>
-     );
+    );
 }
- 
+
 export default HomeBody;

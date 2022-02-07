@@ -1,25 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
 import HomeBody from './components/home/HomeBody';
 import Navbar from './components/Navbar';
-import SponsorsBody from './components/sponsors/SponsorsBody';
 // import { TailSpin } from 'react-loader-spinner';
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from './components/loader/Loader';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [data, setData] = useState([]);
 
-  setTimeout(() => {
-    setIsLoading(false);
-  }, 4000);
+  useEffect(() => {
+    axios.get('http://localhost:5000/api/home')
+      .then(res => {
+        setData(res.data)
+        setIsLoading(false)
+        console.log(res)
+      })
+  }, [])
 
   return (
     <div className="App">
       <Navbar />
       {isLoading && <Loader />}
-      {!isLoading && <HomeBody />}
+      {!isLoading && <HomeBody data={data} />}
       {/* <Loader /> */}
       {/* <HomeBody /> */}
       {/* <SponsorsBody /> */}
