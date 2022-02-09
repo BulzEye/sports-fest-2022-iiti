@@ -3,6 +3,7 @@ import "./HomeBody.css";
 
 import Sponsor from "./Sponsor";
 import Partner from "./Partner";
+import Schedule from "./Schedule";
 
 const HomeBody = (props) => {
     const { events } = props.data;
@@ -46,13 +47,14 @@ const HomeBody = (props) => {
 
                     </div>
                     {/* Will potentially use cards for the events page, WIP - DONE */}
-                    {/* TODO: Use flexbox, align cards in centre, set col-lg-3, col-md-4 etc... */}
+                    {/* TODO: Use flexbox, align cards in centre, set col-lg-3, col-md-4 etc... - nvm centre aligned cards look weird when in groups of 4 */}
 
                 </div>
             </div>
             <div className="container-fluid py-5" id="schedule">
                 <div className="container py-5">
                     <h1>Schedule</h1>
+                    <Schedule />
                 </div>
             </div>
             <div className="container-fluid py-5" id="sponsors">
