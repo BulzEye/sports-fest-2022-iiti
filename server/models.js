@@ -10,24 +10,17 @@ const eventSchema = new mongoose.Schema({
     format: [String]
 });
 
-const sponsorSchema = new mongoose.Schema({
+const sponsor_partner_Schema = new mongoose.Schema({
     title: String,
     image: String,
     type: String,
     description: String
 });
 
-const partnerSchema = new mongoose.Schema({
-    title: String,
-    image: String,
-    type: String,
-    description: String
-})
-
 //Models
 const eventModel = mongoose.model('events', eventSchema);
-const sponsorModel = mongoose.model('sponsors', sponsorSchema);
-const partnerModel = mongoose.model('partners', partnerSchema);
+const sponsorModel = mongoose.model('sponsors', sponsor_partner_Schema);
+const partnerModel = mongoose.model('partners', sponsor_partner_Schema);
 
 module.exports = {
     eventModel,
