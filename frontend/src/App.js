@@ -10,6 +10,7 @@ import EventPage from './components/events/EventPage';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SponsorsBody from './components/sponsors/SponsorsBody';
 import { useLocation } from 'react-router-dom';
+import Footer from './components/Footer';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -52,6 +53,7 @@ function App() {
         {/* <HomeBody /> */}
         {/* <SponsorsBody /> */}
         {/* <TailSpin color="#00BFFF" height={80} width={80} /> */}
+        <Footer />
       </BrowserRouter>
     </div>
   );
