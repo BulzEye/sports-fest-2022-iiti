@@ -12,17 +12,21 @@ const SponsorsBody = (props) => {
             <div className="container-fluid" id="body">
                 <div className="container py-5">
                     <h1>{pageType}s</h1>
-                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 py-5">
-                        <div className="col">
-                            <div className="card">
-                                <div className="card-header">Media {pageType}</div>
-                                <img src="test-card-image.png" alt="" className="card-img-top" />
-                                <div className="card-body">
-                                    <h5 className="card-title">Golden Inc.</h5>
-                                    <p className="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium, illo!</p>
+                    <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 py-5">                
+                        {
+                            sponsors.map((sponsor) => (
+                                <div className="col">
+                                    <div className="card mb-5" id={sponsor._id}>
+                                        <div className="card-header">{sponsor.type + " " + pageType}</div>
+                                        <img src={sponsor.image} alt="" className="card-img-top" />
+                                        <div className="card-body">
+                                            <h5 className="card-title">{sponsor.title}</h5>
+                                            <p className="card-text">{sponsor.description}</p>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                            ))
+                        }
                     </div>
                 </div>
             </div>

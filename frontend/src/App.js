@@ -9,6 +9,16 @@ import axios from 'axios';
 import EventPage from './components/events/EventPage';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SponsorsBody from './components/sponsors/SponsorsBody';
+import { useLocation } from 'react-router-dom';
+
+function ScrollToTop() {
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0,0);
+  }, [location]);
+
+  return null;
+}
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -26,13 +36,14 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollToTop />
         <Navbar />
         {isLoading && <Loader />}
         {/* {!isLoading && <HomeBody data={data} />} */}
         { !isLoading && 
           <Routes>
             <Route path="/" element={<HomeBody data={data} />} />
-            <Route path="/events/:eventname" element={<EventPage data={data.events} />} />
+            <Route path="/events/:eventId" element={<EventPage data={data.events} />} />
             <Route path="/sponsors" element={<SponsorsBody type="Sponsor" data={data.sponsors} />} />
             <Route path="/partners" element={<SponsorsBody type="Partner" data={data.partners} />} />
           </Routes>

@@ -1,8 +1,7 @@
-import Event from "./Event";
+import Event from "./cardComponents/Event";
 import "./HomeBody.css";
 
-import Sponsor from "./Sponsor";
-import Partner from "./Partner";
+import SponsorPartner from "./cardComponents/SponsorPartner";
 import Schedule from "./Schedule";
 
 const HomeBody = (props) => {
@@ -69,7 +68,7 @@ const HomeBody = (props) => {
 
                         {sponsors.map((sponsor) => (
                             <div className="col text-center" key={sponsor._id}>
-                                <Sponsor data={sponsor} />
+                                <SponsorPartner type="Sponsor" data={sponsor} />
                             </div>
                         ))}
 
@@ -88,7 +87,7 @@ const HomeBody = (props) => {
 
                         {partners.map((partner) => (
                             <div className="col text-center" key={partner._id}>
-                                <Partner data={partner} />
+                                <SponsorPartner type="Partner" data={partner} />
                             </div>
                         ))}
                     </div>

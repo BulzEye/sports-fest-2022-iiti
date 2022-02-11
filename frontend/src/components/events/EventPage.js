@@ -4,10 +4,10 @@ import Schedule from "../home/Schedule";
 import "./EventPage.css";
 
 const EventPage = (props) => {
-    const { eventname } = useParams();
+    const { eventId } = useParams();
     console.log(props.data);
     // TODO: change function below to check for id instead of event name
-    const [ event ] = useState(props.data.find((event) => (event.title.toLowerCase() === eventname.toLowerCase())));
+    const [ event ] = useState(props.data.find((event) => (event._id === eventId)));
 
     return (
         <div className="eventPage">
