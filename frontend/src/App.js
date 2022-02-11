@@ -6,6 +6,9 @@ import Navbar from './components/Navbar';
 import Loader from './components/loader/Loader';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import EventPage from './components/events/EventPage';
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SponsorsBody from './components/sponsors/SponsorsBody';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -22,13 +25,23 @@ function App() {
 
   return (
     <div className="App">
-      <Navbar />
-      {isLoading && <Loader />}
-      {!isLoading && <HomeBody data={data} />}
-      {/* <Loader /> */}
-      {/* <HomeBody /> */}
-      {/* <SponsorsBody /> */}
-      {/* <TailSpin color="#00BFFF" height={80} width={80} /> */}
+      <BrowserRouter>
+        <Navbar />
+        {isLoading && <Loader />}
+        {/* {!isLoading && <HomeBody data={data} />} */}
+        { !isLoading && 
+          <Routes>
+            <Route path="/" element={<HomeBody data={data} />} />
+            <Route path="/events/:eventname" element={<EventPage data={data.events} />} />
+            <Route path="/sponsors" element={<SponsorsBody type="Sponsor" data={data.sponsors} />} />
+            <Route path="/partners" element={<SponsorsBody type="Partner" data={data.partners} />} />
+          </Routes>
+        }
+        {/* <Loader /> */}
+        {/* <HomeBody /> */}
+        {/* <SponsorsBody /> */}
+        {/* <TailSpin color="#00BFFF" height={80} width={80} /> */}
+      </BrowserRouter>
     </div>
   );
 }
