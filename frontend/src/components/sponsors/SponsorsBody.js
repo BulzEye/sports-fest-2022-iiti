@@ -15,8 +15,8 @@ const SponsorsBody = (props) => {
                     <div className="row row-cols-1 row-cols-md-2 row-cols-lg-3 py-5">                
                         {
                             sponsors.map((sponsor) => (
-                                <div className="col">
-                                    <div className="card mb-5" id={sponsor._id}>
+                                <div className="col" key={sponsor._id}>
+                                    <div className="card mb-5">
                                         <div className="card-header">{sponsor.type + " " + pageType}</div>
                                         <img src={sponsor.image} alt="" className="card-img-top" />
                                         <div className="card-body">

@@ -7,7 +7,7 @@ const EventPage = (props) => {
     const { eventId } = useParams();
     console.log(props.data);
     // TODO: change function below to check for id instead of event name
-    const [ event ] = useState(props.data.find((event) => (event._id === eventId)));
+    const [event] = useState(props.data.find((event) => (event._id === eventId)));
 
     return (
         <div className="eventPage">
@@ -16,7 +16,7 @@ const EventPage = (props) => {
                     <h1 className="title">
                         {event.title.toUpperCase()}
                     </h1>
-                    <a href="#" className="registerLink btn btn-primary btn-lg mt-5">Register</a>
+                    <a href={event.form} target="_blank" className="registerLink btn btn-primary btn-lg mt-5">Register</a>
                 </div>
             </div>
             <div className="container-fluid py-5" id="eventSchedule">
@@ -30,18 +30,22 @@ const EventPage = (props) => {
                     {/* <h1>Description</h1> */}
                     {/* TODO: Add padding to p tag */}
                     <p className="p-4">
-                        {/* {event.description} */}
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, soluta, facere dolore porro, modi laudantium eligendi deleniti voluptates fuga nemo dolores. Quidem quo, officiis maiores architecto similique aspernatur harum animi nam saepe sequi nihil voluptatum adipisci consectetur sint iure, quaerat voluptas ipsa quam! Sapiente, aut consequuntur architecto culpa vel cumque!
+                        {event.description}
+                        {/* Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, soluta, facere dolore porro, modi laudantium eligendi deleniti voluptates fuga nemo dolores. Quidem quo, officiis maiores architecto similique aspernatur harum animi nam saepe sequi nihil voluptatum adipisci consectetur sint iure, quaerat voluptas ipsa quam! Sapiente, aut consequuntur architecto culpa vel cumque! */}
                     </p>
                 </div>
             </div>
             <div className="container-fluid py-5" id="eventFormat">
                 <div className="container">
                     <h1>Format</h1>
-                    <p>
-                        {/* {event.format} */}
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque minus, neque non consequatur quo excepturi facere deserunt in nostrum totam nesciunt eius. Asperiores, hic voluptates. Quia, inventore corporis. Incidunt harum adipisci architecto optio nemo?
-                    </p>
+                    <ul>
+                        {event.format.map(element => (
+                            <li key={event.format.indexOf(element)}>
+                                {element}
+                            </li>
+                        ))}
+                    </ul>
+                    {/* {event.format} */}
                 </div>
             </div>
         </div>

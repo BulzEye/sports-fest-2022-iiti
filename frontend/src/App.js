@@ -4,10 +4,10 @@ import Navbar from './components/Navbar';
 // import { TailSpin } from 'react-loader-spinner';
 // import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from './components/loader/Loader';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EventPage from './components/events/EventPage';
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import SponsorsBody from './components/sponsors/SponsorsBody';
 import { useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
@@ -21,9 +21,25 @@ function ScrollToTop() {
   return null;
 }
 
+const protectedRoutes = [
+  <Route key={1} path="/editEvents" element={<h1>Add Events Page</h1>} />,
+  <Route key={2} path="/editSponsors" element={<h1>Add Sponsors Page</h1>} />,
+  <Route key={3} path="/editPartners" element={<h1>Add Partners Page</h1>} />,
+  <Route key={4} path="/editAdmins" element={<h1>Add Admins Page</h1>} />
+]
+
+export const authContext = React.createContext();
+
 function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState([]);
+  const [auth, setAuth] = useState(false);
+  const [authHeader, setAuthHeader] = useState(false);
+
+  const updateAuth = (auth, authHeader) => {
+    setAuth(auth);
+    setAuthHeader(authHeader);
+  }
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/home')
@@ -39,20 +55,26 @@ function App() {
   return (
     <div className="App">
       <ScrollToTop />
-      <Navbar />
+      <authContext.Provider value={updateAuth}>
+        <Navbar auth={auth} />
+      </authContext.Provider>
       {isLoading && <Loader />}
-      {/* {!isLoading && <HomeBody data={data} />} */}
       {!isLoading &&
-        <Routes>
-          <Route path="/" element={<HomeBody data={data} />} />
-          <Route path="/events/:eventId" element={<EventPage data={data.events} />} />
-          <Route path="/sponsors" element={<SponsorsBody type="Sponsor" data={data.sponsors} />} />
-          <Route path="/partners" element={<SponsorsBody type="Partner" data={data.partners} />} />
-        </Routes>
+        <authContext.Provider value={authHeader}>
+          <Routes>
+            <Route index path="/" element={<HomeBody data={data} />} />
+            <Route path="/events/:eventId" element={<EventPage data={data.events} />} />
+            <Route path="/sponsors" element={<SponsorsBody type="Sponsor" data={data.sponsors} />} />
+            <Route path="/partners" element={<SponsorsBody type="Partner" data={data.partners} />} />
+            <Route path="*" element={<Navigate to="/" />} />
+            {
+              auth ?
+                protectedRoutes.map(route => route)
+                : null
+            }
+          </Routes>
+        </authContext.Provider>
       }
-      {/* <Loader /> */}
-      {/* <HomeBody /> */}
-      {/* <SponsorsBody /> */}
       {/* <TailSpin color="#00BFFF" height={80} width={80} /> */}
       <Footer />
     </div>
