@@ -3,6 +3,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
+const authToken = require('./config/auth').authToken;
+
 
 //Connecting to MongoDB
 mongoose.connect(process.env.MONGO_URI)
@@ -10,10 +12,17 @@ mongoose.connect(process.env.MONGO_URI)
         console.log(err.message)
     });
 
-//Parser and routing and CORS
-app.use(require('cors')())
+
+//CORS, Parsers and Routing Modules
+app.use(require('cors')());
+
 app.use(express.json());
-app.use('/api', require('./routes'));
+app.use(express.urlencoded({ extended: true }));
+
+app.use('/api', require('./routes/routes'));
+app.use('/api/login', require('./routes/login_api'));
+app.use('/api/auth', authToken, require('./routes/auth_routes'));
+
 
 //Serving static files
 if (process.env.NODE_ENV === 'production') {

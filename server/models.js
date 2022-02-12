@@ -16,14 +16,20 @@ const sponsor_partner_Schema = new mongoose.Schema({
     type: String,
     description: String
 });
+const adminSchema = new mongoose.Schema({
+    username: String,
+    email: String
+})
 
 //Models
 const eventModel = mongoose.model('events', eventSchema);
 const sponsorModel = mongoose.model('sponsors', sponsor_partner_Schema);
 const partnerModel = mongoose.model('partners', sponsor_partner_Schema);
+const adminModel = mongoose.model('admins', adminSchema);
 
 module.exports = {
     eventModel,
     sponsorModel,
-    partnerModel
+    partnerModel,
+    adminModel
 }
