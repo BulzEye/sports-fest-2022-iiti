@@ -7,6 +7,7 @@ const Sponsors = require('../models').sponsorModel;
 
 //route handlers
 //site management
+//Post Requests
 router.post('/partner', (req, res, next) => {
     if (req.admin) {
 
@@ -28,6 +29,7 @@ router.post('/event', (req, res, next) => {
     else res.status(403).end()
 });
 
+//Delete Requests
 router.delete('/partner/:id', (req, res, next) => {
     if (req.admin) {
 
@@ -54,7 +56,7 @@ router.delete('/event/:id', (req, res, next) => {
 //Admin management
 router.get('/admin', (req, res, next) => {
     if (req.superAdmin) {
-        Admins.find({})
+        Admins.find({ email: { $ne: process.env.SUPER_ADMIN } })
             .then(admins => {
                 res.status(200).send(admins)
             })

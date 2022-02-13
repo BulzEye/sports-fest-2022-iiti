@@ -11,6 +11,7 @@ import { Route, Routes, Navigate, Outlet } from "react-router-dom";
 import SponsorsBody from './components/sponsors/SponsorsBody';
 import { useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
+import EditAdmins from './components/AdminPanelPages/EditAdmins';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -22,10 +23,10 @@ function ScrollToTop() {
 }
 
 const protectedRoutes = [
-  <Route key={1} path="/editEvents" element={<h1>Add Events Page</h1>} />,
-  <Route key={2} path="/editSponsors" element={<h1>Add Sponsors Page</h1>} />,
-  <Route key={3} path="/editPartners" element={<h1>Add Partners Page</h1>} />,
-  <Route key={4} path="/editAdmins" element={<h1>Add Admins Page</h1>} />
+  <Route key={1} path="/editEvents" element={<h1>Edit Events-Page</h1>} />,
+  <Route key={2} path="/editSponsors" element={<h1>Edit Sponsors-Page</h1>} />,
+  <Route key={3} path="/editPartners" element={<h1>Edit Partners-Page</h1>} />,
+  <Route key={4} path="/editAdmins" element={<EditAdmins />} />
 ]
 
 export const authContext = React.createContext();
@@ -42,7 +43,7 @@ function App() {
   }
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/home')
+    axios.get('/api/home')
       .then(res => {
         setData(res.data)
         setIsLoading(false)

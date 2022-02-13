@@ -5,15 +5,14 @@ import clientID from './googleClient';
 import { authContext } from '../../App';
 import { useContext } from 'react';
 
-function LoginButton(props) {
+function LoginButton() {
     const updateAuth = useContext(authContext);
 
     const LoginSuccess = (res) => {
-        axios.post('http://localhost:5000/api/login', {
+        axios.post('/api/login', {
             googleToken: res.tokenId
         })
             .then(res => {
-                console.log(res)
                 res.status === 200 && updateAuth(true, res.data)
             })
             .catch(err => {
@@ -34,7 +33,6 @@ function LoginButton(props) {
                 isSignedIn={false}
                 onFailure={LoginFail}
                 cookiePolicy={'single_host_origin'}
-            onAutoLoadFinished={LoginSuccess}
             />
         </div>
     )

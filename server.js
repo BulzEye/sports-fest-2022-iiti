@@ -26,9 +26,9 @@ app.use('/api/auth', authToken, require('./routes/auth_routes'));
 
 //Serving static files
 if (process.env.NODE_ENV === 'production') {
-    app.use('/', express.static(__dirname + '../frontend/'));
+    app.use('/', express.static(__dirname + '/frontend/build'));
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, '..', 'frontend', 'build', 'index.html'));
+        res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
     })
 }
 
