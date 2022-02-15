@@ -12,6 +12,8 @@ import SponsorsBody from './components/sponsors/SponsorsBody';
 import { useLocation } from 'react-router-dom';
 import Footer from './components/Footer';
 import EditAdmins from './components/AdminPanelPages/EditAdmins';
+import EditEvents from './components/AdminPanelPages/EditEvents';
+import EditSponsorsPartners from './components/AdminPanelPages/EditSponsors_Partners';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -23,8 +25,8 @@ function ScrollToTop() {
 }
 
 const protectedRoutes = [
-  <Route key={1} path="/editEvents" element={<h1>Edit Events-Page</h1>} />,
-  <Route key={2} path="/editSponsors" element={<h1>Edit Sponsors-Page</h1>} />,
+  <Route key={1} path="/editEvents" element={/*<h1>Edit Events-Page</h1>*/ <EditEvents data={data.events} />} />,
+  <Route key={2} path="/editSponsors" element={/* <h1>Edit Sponsors-Page</h1> */ <EditSponsorsPartners data={data.sponsors} />} />,
   <Route key={3} path="/editPartners" element={<h1>Edit Partners-Page</h1>} />,
   <Route key={4} path="/editAdmins" element={<EditAdmins />} />
 ]
