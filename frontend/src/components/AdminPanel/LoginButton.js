@@ -34,6 +34,12 @@ function LoginButton() {
           <div
             onClick={renderProps.onClick}
             className="btn"
+            style={
+                {
+                    border: "1px solid #c6c6c748",
+                    color: "#ffffff9a"
+                }
+            }
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
