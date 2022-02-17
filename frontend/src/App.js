@@ -24,13 +24,6 @@ function ScrollToTop() {
   return null;
 }
 
-const protectedRoutes = [
-  <Route key={1} path="/editEvents" element={/*<h1>Edit Events-Page</h1>*/ <EditEvents data={data.events} />} />,
-  <Route key={2} path="/editSponsors" element={/* <h1>Edit Sponsors-Page</h1> */ <EditSponsorsPartners data={data.sponsors} />} />,
-  <Route key={3} path="/editPartners" element={<h1>Edit Partners-Page</h1>} />,
-  <Route key={4} path="/editAdmins" element={<EditAdmins />} />
-]
-
 export const authContext = React.createContext();
 
 function App() {
@@ -38,7 +31,13 @@ function App() {
   const [data, setData] = useState([]);
   const [auth, setAuth] = useState(false);
   const [authHeader, setAuthHeader] = useState(false);
-
+  const protectedRoutes = [
+    <Route key={1} path="/editEvents" element={/*<h1>Edit Events-Page</h1>*/ <EditEvents events={data.events} />}  />,
+    <Route key={2} path="/editSponsors" element={ /*<h1>Edit Sponsors-Page</h1> */ <EditSponsorsPartners data={ {sponsors: data.sponsors, partners: data.partners} } />} />,
+    <Route key={3} path="/editPartners" element={<h1>Edit Partners-Page</h1>} />,
+    <Route key={4} path="/editAdmins" element={<EditAdmins />} />
+  ]
+  
   const updateAuth = (auth, authHeader) => {
     setAuth(auth);
     setAuthHeader(authHeader);
