@@ -28,13 +28,13 @@ const Navbar = (props) => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <Link className="nav-link" to="/#header">LAKSHYA 2022</Link>
+                            <Link className="nav-link" to="/#header" data-bs-target={`#header`}>LAKSHYA 2022</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/#about">About</Link>
+                            <Link className="nav-link" to="/#about" data-bs-target={`#about`}>About</Link>
                         </li>
                         <li className="nav-item dropdown">
-                            <Link className="nav-link dropdown-toggle" to="/#events" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <Link className="nav-link dropdown-toggle" to="/#events" data-bs-target={`#events`} id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Events
                             </Link>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -46,16 +46,16 @@ const Navbar = (props) => {
                             </ul>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/#schedule">Schedule</Link>
+                            <Link className="nav-link" to="/#schedule" data-bs-target={`#schedule`}>Schedule</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/#sponsors">Sponsors</Link>
+                            <Link className="nav-link" to="/#sponsors" data-bs-target={`#sponsors`}>Sponsors</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/#partners">Partners</Link>
+                            <Link className="nav-link" to="/#partners" data-bs-target={`#partners`}>Partners</Link>
                         </li>
                         <li className="nav-item">
-                            <Link className="nav-link" to="/#footer">Contact</Link>
+                            <Link className="nav-link" to="/#footer" data-bs-target={`#footer`}>Contact</Link>
                         </li>
                         <AdminPanel auth={props.auth} />
                     </ul>
