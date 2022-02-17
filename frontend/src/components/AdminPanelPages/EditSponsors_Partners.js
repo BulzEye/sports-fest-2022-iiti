@@ -1,59 +1,78 @@
-import { useState } from "react";
+import axios from "axios";
+import { useContext, useState } from "react";
 import { authContext } from "../../App";
+import SponsorPartner from "../home/cardComponents/SponsorPartner";
+import Loader from "../loader/Loader";
 
 const EditSponsorsPartners = (props) => {
-    const [formData, setFormData] = useState();
+    const { type } = props;
+    const authHeader = useContext(authContext);
+    const [data, setData] = useState(props.data)
+    const [loading, setLoading] = useState(false)
+    
+    const handleSubmit = e => {
+        setLoading(true)
+        e.preventDefault();
+        axios.post(`/api/auth/${type.toLowerCase()}`, new FormData(e.target), {
+            headers: {
+                'authorization': authHeader
+            }   
+        })
+            .then(res => {
+                setData(res.data);
+                setLoading(false);
+            })
+            .catch(err => {
+                setLoading(false);
+                console.log(err)
+                // alert(`${err.response.status} - Couldn't post`);
+            })
+    }
 
-    return ( 
-        <div className="editSponsorsPartners">
-            <div className="container-fluid">
-                <div className="container addPartnerSponsor">
-                    <div className="card addSP">
-                        <label htmlFor="selectSP">Sponsor / Partner</label>
-                        <input type="text" name="sponsorpartner" id="selectSP" onChange={changeData} />
-                        <label htmlFor="title">Name of {/* Sponsor / Partner */}</label>
-                        <input type="text" name="title" id="title" onChange={changeData} />
-                        <label htmlFor="desc">Description of {/* Sponsor / Partner */}</label>
-                        <textarea name="desc" id="desc" rows="4" onChange={changeData} ></textarea>
-                        <label htmlFor="logoImage">{ /* Sponsor / Partner */} Logo</label>
-                        <input type="file" name="image" id="logoImage" />
-                        <button type="submit">Submit</button>
+    return (
+        loading ? <Loader />
+            : <div className="editSponsorsPartners">
+                <div className="container-fluid">
+                    <div className="container addPartnerSponsor">
+                        <div className="card addSP">
+                            <form id="postForm" noValidate="" onSubmit={handleSubmit} action={null}> {/* Styling required */}
+                                <label htmlFor="title">Name of {type}</label>
+                                <input autoCapitalize="sentences" type="text" name="title" id="title" />
+
+                                <label htmlFor="desc">Description of {type}</label>
+                                <textarea autoCapitalize="sentences" name="description" id="description" rows="4"></textarea>
+
+                                <label htmlFor="logoImage">{type} Logo Link</label>
+                                <input type="text" name="image" id="image" />
+
+                                <label htmlFor="logoImage">{type} tpe</label>
+                                <input type="text" name="type" id="type" />
+
+                                <button type="submit">Submit</button>
+                            </form>
+                        </div>
                     </div>
-                </div>
-                <div className="container">
-                    <h1>Existing Sponsors</h1>
-                    <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 pt-5">
-                        {/* <div className="col text-center">
+
+                    <div className="container">
+                        <h1>Existing {type}s</h1>
+                        <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 pt-5">
+                            {/* <div className="col text-center">
                             <small className="sponsor-type text-muted">Media Sponsor</small>
                             <img src="logo-placeholder-image.png" alt="" className="sponsor-image img-fluid" />
                             <h5 className="sponsor-name">Golden Inc.</h5>
                         </div> */}
 
-                        {props.data.sponsors.map((sponsor) => (
-                            <div className="col text-center" key={sponsor._id}>
-                                <SponsorPartner type="Sponsor" data={sponsor} />
-                            </div>
-                        ))}
+                            {data.map(element => (
+                                <div className="col text-center" key={element._id}>
+                                    <SponsorPartner type={`${type}`} data={element} />
+                                </div>
+                            ))}
 
-                    </div>
-                    <h1>Existing Partners</h1>
-                    <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 pt-5">
-                        {/* <div className="col text-center">
-                            <small className="partner-type text-muted">Outreach Partner</small>
-                            <img src="logo-placeholder-image.png" alt="" className="partner-image img-fluid" />
-                            <h5 className="partner-name">Plinfer Inc.</h5>
-                        </div> */}
-
-                        {props.data.partners.map((partner) => (
-                            <div className="col text-center" key={partner._id}>
-                                <SponsorPartner type="Partner" data={partner} />
-                            </div>
-                        ))}
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-     );
+    );
 }
- 
+
 export default EditSponsorsPartners;

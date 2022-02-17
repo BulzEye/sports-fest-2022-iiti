@@ -24,12 +24,6 @@ function ScrollToTop() {
   return null;
 }
 
-const protectedRoutes = [
-  <Route key={1} path="/editEvents" element={/*<h1>Edit Events-Page</h1>*/ <EditEvents data={data.events} />} />,
-  <Route key={2} path="/editSponsors" element={/* <h1>Edit Sponsors-Page</h1> */ <EditSponsorsPartners data={data.sponsors} />} />,
-  <Route key={3} path="/editPartners" element={<h1>Edit Partners-Page</h1>} />,
-  <Route key={4} path="/editAdmins" element={<EditAdmins />} />
-]
 
 export const authContext = React.createContext();
 
@@ -38,6 +32,13 @@ function App() {
   const [data, setData] = useState([]);
   const [auth, setAuth] = useState(false);
   const [authHeader, setAuthHeader] = useState(false);
+
+  const protectedRoutes = [
+    <Route key={1} path="/editEvents" element={<EditEvents data={data.events} />} />,
+    <Route key={2} path="/editSponsors" element={<EditSponsorsPartners type={"Sponsor"} data={data.sponsors} />} />,
+    <Route key={3} path="/editPartners" element={<EditSponsorsPartners type={"Partner"} data={data.partners} />} />,
+    <Route key={4} path="/editAdmins" element={<EditAdmins />} />
+  ]
 
   const updateAuth = (auth, authHeader) => {
     setAuth(auth);
@@ -61,23 +62,25 @@ function App() {
       <authContext.Provider value={updateAuth}>
         <Navbar auth={auth} />
       </authContext.Provider>
-      {isLoading && <Loader />}
-      {!isLoading &&
-        <authContext.Provider value={authHeader}>
-          <Routes>
-            <Route index path="/" element={<HomeBody data={data} />} />
-            <Route path="/events/:eventId" element={<EventPage data={data.events} />} />
-            <Route path="/sponsors" element={<SponsorsBody type="Sponsor" data={data.sponsors} />} />
-            <Route path="/partners" element={<SponsorsBody type="Partner" data={data.partners} />} />
-            <Route path="*" element={<Navigate to="/" />} />
-            {
-              auth ?
-                protectedRoutes.map(route => route)
-                : null
-            }
-          </Routes>
-        </authContext.Provider>
-      }
+      <div className="bodyDiv">
+        {isLoading && <Loader />}
+        {!isLoading &&
+          <authContext.Provider value={authHeader}>
+            <Routes>
+              <Route index path="/" element={<HomeBody data={data} />} />
+              <Route path="/events/:eventId" element={<EventPage data={data.events} />} />
+              <Route path="/sponsors" element={<SponsorsBody type="Sponsor" data={data.sponsors} />} />
+              <Route path="/partners" element={<SponsorsBody type="Partner" data={data.partners} />} />
+              <Route path="*" element={<Navigate to="/" />} />
+              {
+                auth ?
+                  protectedRoutes.map(route => route)
+                  : null
+              }
+            </Routes>
+          </authContext.Provider>
+        }
+      </div>
       {/* <TailSpin color="#00BFFF" height={80} width={80} /> */}
       <Footer />
     </div>

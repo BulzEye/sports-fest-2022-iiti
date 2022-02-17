@@ -10,14 +10,35 @@ const Sponsors = require('../models').sponsorModel;
 //Post Requests
 router.post('/partner', (req, res, next) => {
     if (req.admin) {
-
+        const { body } = req
+        console.log(body)
+        Partners.create(req.body)
+            .then(() => {
+                Partners.find({})
+                    .sort({ _id: 'desc' })
+                    .then(partners => {
+                        res.status(200).send(partners)
+                    })
+                    .catch(next)
+            })
+            .catch(next)
     }
     else res.status(403).end()
 });
 
 router.post('/sponsor', (req, res, next) => {
     if (req.admin) {
-
+        console.log(req.body)
+        Sponsors.create(req.body)
+            .then(() => {
+                Sponsors.find({})
+                    .sort({ _id: 'desc' })
+                    .then(sponsors => {
+                        res.status(200).send(sponsors)
+                    })
+                    .catch(next)
+            })
+            .catch(next)
     }
     else res.status(403).end()
 });

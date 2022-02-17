@@ -14,8 +14,8 @@ route.post('/', (req, res, next) => {
             if (email_verified) {
                 Admin.findOne({ email })
                     .then(admin => {
-                        if (admin) {
-                            res.status(200).send(genToken({ email: admin.email }));
+                        if (admin || email === process.env.SUPER_ADMIN) {
+                            res.status(200).send(genToken({ email: email }));
                         } else {
                             res.status(403).end();
                         }

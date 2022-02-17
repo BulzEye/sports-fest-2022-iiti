@@ -30,7 +30,7 @@ function LoginButton() {
                 clientId={clientID}
                 buttonText="Login"
                 onSuccess={LoginSuccess}
-                isSignedIn={false}
+                isSignedIn={true}
                 onFailure={LoginFail}
                 cookiePolicy={'single_host_origin'}
             />
