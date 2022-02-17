@@ -1,0 +1,12 @@
+div.editEvents {
+    padding-top: 7%;
+}
+
+div.eventAddForm {
+    width: 40%;
+    text-align: left;
+}
+
+div.editEvents textarea {
+    height: 7rem;
+}
