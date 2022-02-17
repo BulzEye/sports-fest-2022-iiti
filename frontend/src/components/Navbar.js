@@ -2,14 +2,14 @@ import "./Navbar.css";
 // import { NavHashLink as NavLink } from "react-router-hash-link";
 import { HashLink as Link } from "react-router-hash-link";
 import AdminPanel from "./AdminPanel/AdminPanel";
-import {useState} from 'react';
+import { useState } from 'react';
 
 const Navbar = (props) => {
 
     const [navbar, setnavbar] = useState(false);
 
     const setBackground = () => {
-        if(window.scrollY >= 5) {
+        if (window.scrollY >= 5) {
             setnavbar(true);
         }
         else {
@@ -17,7 +17,7 @@ const Navbar = (props) => {
         }
     }
 
-    window.addEventListener('scroll',setBackground);
+    window.addEventListener('scroll', setBackground);
     return (
         <nav className={navbar ? 'navbar navbar-expand-lg navbar-dark fixed-top active' : 'navbar navbar-expand-lg navbar-dark fixed-top'}>
             <div className="container-fluid container">
@@ -37,12 +37,24 @@ const Navbar = (props) => {
                             <Link className="nav-link dropdown-toggle" to="/#events" data-bs-target={`#events`} id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                 Events
                             </Link>
-                            <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><Link className="dropdown-item" to="/#events">Sport Events</Link></li>
-                                <li><Link className="dropdown-item" to="/#events">Online Events</Link></li>
-                                {/* <li>
-                                  <hr class="dropdown-divider">
-                              </li>*/}
+                            {/* <div className="dropdown-menu multi-co d-flex">
+                                <ul className="dropdown-menu">
+                                    <li>Item 1</li>
+                                    <li>Item 2</li>
+                                </ul>
+                                <ul className="dropdown-menu">
+                                    <li>Item 1</li>
+                                    <li>Item 2</li>
+                                </ul>
+                            </div> */}
+                            <ul className="dropdown-menu d-flex" aria-labelledby="navbarDropdown">
+                                
+                                <li>
+                                    <Link className="dropdown-item" to="/#events">Sport Events</Link>
+                                </li>
+                                <li>
+                                    <Link className="dropdown-item" to="/#events">Online Events</Link>
+                                </li>
                             </ul>
                         </li>
                         <li className="nav-item">
