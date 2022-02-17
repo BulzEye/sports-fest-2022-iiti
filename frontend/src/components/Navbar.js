@@ -9,7 +9,7 @@ const Navbar = (props) => {
     const [navbar, setnavbar] = useState(false);
 
     const setBackground = () => {
-        if(window.scrollY >= 100) {
+        if(window.scrollY >= 5) {
             setnavbar(true);
         }
         else {
