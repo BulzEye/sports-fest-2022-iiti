@@ -10,8 +10,6 @@ const Sponsors = require('../models').sponsorModel;
 //Post Requests
 router.post('/partner', (req, res, next) => {
     if (req.admin) {
-        const { body } = req
-        console.log(body)
         Partners.create(req.body)
             .then(() => {
                 Partners.find({})
@@ -28,7 +26,6 @@ router.post('/partner', (req, res, next) => {
 
 router.post('/sponsor', (req, res, next) => {
     if (req.admin) {
-        console.log(req.body)
         Sponsors.create(req.body)
             .then(() => {
                 Sponsors.find({})
@@ -77,7 +74,8 @@ router.delete('/event/:id', (req, res, next) => {
 //Admin management
 router.get('/admin', (req, res, next) => {
     if (req.superAdmin) {
-        Admins.find({ email: { $ne: process.env.SUPER_ADMIN } })
+        Admins.find({})
+            .sort({ _id: 'desc' })
             .then(admins => {
                 res.status(200).send(admins)
             })
@@ -90,18 +88,28 @@ router.post('/admin', (req, res, next) => {
     if (req.superAdmin) {
         Admins.create(req.body)
             .then(() => {
-                res.status(201).end();
+                Admins.find({})
+                    .sort({ _id: 'desc' })
+                    .then(admins => {
+                        res.status(201).send(admins);
+                    })
+                    .catch(next)
             })
             .catch(next)
     }
     else res.status(403).end();
 });
 
-router.delete('/admin/:email', (req, res, next) => {
+router.delete('/admin/:id', (req, res, next) => {
     if (req.superAdmin) {
-        Admins.deleteOne({ email: req.params.email })
+        Admins.deleteOne({ _id: req.params.id })
             .then(() => {
-                res.status(204).end();
+                Admins.find({})
+                    .sort({ _id: 'desc' })
+                    .then(admins => {
+                        console.log(admins)
+                        res.status(200).send(admins);
+                    })
             })
             .catch(next)
     }

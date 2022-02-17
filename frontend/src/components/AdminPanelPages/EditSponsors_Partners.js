@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { authContext } from "../../App";
 import SponsorPartner from "../home/cardComponents/SponsorPartner";
 import Loader from "../loader/Loader";
@@ -7,16 +7,33 @@ import Loader from "../loader/Loader";
 const EditSponsorsPartners = (props) => {
     const { type } = props;
     const authHeader = useContext(authContext);
-    const [data, setData] = useState(props.data)
     const [loading, setLoading] = useState(false)
+    const [data, setData] = useState(props.data)
+    useEffect(() => {
+        setData(props.data)
+    },[props])
     
+    const [formData, setFormData] = useState({
+        title: null,
+        description: null,
+        image: null,
+        type: null
+    });
+
+    let changeData = e => {
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value
+        });
+    };
+
     const handleSubmit = e => {
         setLoading(true)
         e.preventDefault();
-        axios.post(`/api/auth/${type.toLowerCase()}`, new FormData(e.target), {
+        axios.post(`/api/auth/${type.toLowerCase()}`, formData, {
             headers: {
                 'authorization': authHeader
-            }   
+            }
         })
             .then(res => {
                 setData(res.data);
@@ -25,7 +42,7 @@ const EditSponsorsPartners = (props) => {
             .catch(err => {
                 setLoading(false);
                 console.log(err)
-                // alert(`${err.response.status} - Couldn't post`);
+                alert(`${err.response.status} - Couldn't post`);
             })
     }
 
@@ -33,22 +50,28 @@ const EditSponsorsPartners = (props) => {
         loading ? <Loader />
             : <div className="editSponsorsPartners">
                 <div className="container-fluid">
-                    <div className="container addPartnerSponsor">
-                        <div className="card addSP">
-                            <form id="postForm" noValidate="" onSubmit={handleSubmit} action={null}> {/* Styling required */}
-                                <label htmlFor="title">Name of {type}</label>
-                                <input autoCapitalize="sentences" type="text" name="title" id="title" />
+                    <div className="container addPartnerSponsor d-flex justify-content-center mb-5">
+                        <div className="card addSP p-4">
+                            <form onSubmit={handleSubmit}>
+                                <h1 className="mb-3 text-center">Add {type}</h1>
+                                <div className="mb-3">
+                                    <label htmlFor="title" className="form-label">Name of {type}</label>
+                                    <input className="form-control" type="text" name="title" id="title" onChange={changeData} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="description" className="form-label">Description of {type}</label>
+                                    <textarea className="form-control" name="description" id="description" rows="4" onChange={changeData}></textarea>
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="image" className="form-label">{type} Logo Link</label>
+                                    <input type="text" className="form-control" name="image" id="image" onChange={changeData} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="type" className="form-label">{type} type</label>
+                                    <input type="text" className="form-control" name="type" id="type" onChange={changeData} />
+                                </div>
 
-                                <label htmlFor="desc">Description of {type}</label>
-                                <textarea autoCapitalize="sentences" name="description" id="description" rows="4"></textarea>
-
-                                <label htmlFor="logoImage">{type} Logo Link</label>
-                                <input type="text" name="image" id="image" />
-
-                                <label htmlFor="logoImage">{type} tpe</label>
-                                <input type="text" name="type" id="type" />
-
-                                <button type="submit">Submit</button>
+                                <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -56,15 +79,10 @@ const EditSponsorsPartners = (props) => {
                     <div className="container">
                         <h1>Existing {type}s</h1>
                         <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 pt-5">
-                            {/* <div className="col text-center">
-                            <small className="sponsor-type text-muted">Media Sponsor</small>
-                            <img src="logo-placeholder-image.png" alt="" className="sponsor-image img-fluid" />
-                            <h5 className="sponsor-name">Golden Inc.</h5>
-                        </div> */}
 
                             {data.map(element => (
                                 <div className="col text-center" key={element._id}>
-                                    <SponsorPartner type={`${type}`} data={element} />
+                                    <SponsorPartner type={type} data={element} />
                                 </div>
                             ))}
 

@@ -1,0 +1,12 @@
+div.editSponsorsPartners {
+    padding-top: 7%;
+}
+
+div.addSP {
+    width: 40%;
+    text-align: left;
+}
+
+div.editSponsorsPartners textarea {
+    height: 7rem;
+}

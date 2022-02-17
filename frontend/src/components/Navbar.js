@@ -2,10 +2,24 @@ import "./Navbar.css";
 // import { NavHashLink as NavLink } from "react-router-hash-link";
 import { HashLink as Link } from "react-router-hash-link";
 import AdminPanel from "./AdminPanel/AdminPanel";
+import {useState} from 'react';
 
 const Navbar = (props) => {
+
+    const [navbar, setnavbar] = useState(false);
+
+    const setBackground = () => {
+        if(window.scrollY >= 100) {
+            setnavbar(true);
+        }
+        else {
+            setnavbar(false);
+        }
+    }
+
+    window.addEventListener('scroll',setBackground);
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="navbar">
+        <nav className={navbar ? 'navbar navbar-expand-lg navbar-dark fixed-top active' : 'navbar navbar-expand-lg navbar-dark fixed-top'}>
             <div className="container-fluid container">
                 <Link className="navbar-brand" to="/">SportFest</Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

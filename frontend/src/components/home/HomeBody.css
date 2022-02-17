@@ -1,18 +1,63 @@
+video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
 div#header {
     /* Code to be added later */
-    background-color: beige;
+    /* background-image: url(/public/poster.jpg); */
+    /* background-image: url(/public/videos/video.mp4); */
+    background-size: cover;
+    background-attachment: fixed;
+    /* background-color: beige; */
     padding-top: 28%;
     padding-bottom: 10%;
     /* height: 100vh; */
 }
 
-div#header h1.title {
+h1.title {
+
     font-size: 3.75em;
+    
 }
+h1 {
+
+    color: #fff;
+    font-size: 1.75em;
+    
+}
+
+.title {
+    font-size: 800px;
+    color: #fff;
+    text-align: center;
+    
+    /* -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+    animation: glow 1s ease-in-out infinite alternate; */
+  }
+  
+  /* @keyframes glow {
+    from {
+      text-shadow: 0 0 1px #fff, 0 0 20px #fff, 0 0 30px #e9ec23, 0 0 40px #e9ec23, 0 0 50px #e9ec23, 0 0 60px #e9ec23, 0 0 70px #e9ec23;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #e8f3a8, 0 0 40px #e8f3a8, 0 0 50px #e8f3a8, 0 0 60px #e8f3a8, 0 0 70px #e8f3a8, 0 0 80px #e8f3a8;
+    }
+  } */
 
 @media only screen and (min-width: 650px) {
     div#header h1.title {
         font-size: 8em;
+        
+        color: #fff;
+        text-align: center;
+        text-shadow: 1px 1px 10px rgb(255, 255, 255);
     }
 
     div#header {
@@ -32,16 +77,24 @@ div.container-fluid .container {
 } */
 
 div#about {
-    background-color: rgba(132, 198, 255);
+    background-image: linear-gradient(to right, rgb(10, 2, 43) , rgb(12, 7, 85));
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: rgb(6, 3, 41); */
 }
 
 div#about .container {
-    background-color: rgba(240, 248, 255, 0.6);
+    background-color: rgba(26, 118, 199, 0.507);
+    color: rgb(211, 208, 235);
     z-index: 1;
     border-radius: 20px;
+    padding: 30px;
 }
 
 div#schedule {
+    
     background-color: darkseagreen;
 }
 
@@ -53,8 +106,16 @@ div#sponsors {
     background-color: rgb(238, 210, 210);
 }
 
-div#sponsors {
-    background-color: rgb(238, 210, 210);
+div#events,
+div#partners {
+    background-image: url(/public/poster.jpg);
+    background-size: cover;
+    background-attachment: fixed;
 }
 
+div#eventscard,
+div#sponsercard {
+    display: flex;
+    justify-content: center;
+}
 /* Generic colors added for testing section sizes */

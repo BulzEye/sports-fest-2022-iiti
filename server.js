@@ -17,7 +17,6 @@ mongoose.connect(process.env.MONGO_URI)
 app.use(require('cors')());
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 app.use('/api', require('./routes/routes'));
 app.use('/api/login', require('./routes/login_api'));

@@ -24,7 +24,6 @@ function ScrollToTop() {
   return null;
 }
 
-
 export const authContext = React.createContext();
 
 function App() {
@@ -39,6 +38,7 @@ function App() {
     <Route key={3} path="/editPartners" element={<EditSponsorsPartners type={"Partner"} data={data.partners} />} />,
     <Route key={4} path="/editAdmins" element={<EditAdmins />} />
   ]
+
 
   const updateAuth = (auth, authHeader) => {
     setAuth(auth);
