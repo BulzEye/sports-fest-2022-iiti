@@ -7,7 +7,7 @@ const AdminPanel = (props) => {
     const { auth } = props;
     return (
         auth ? <div className="nav-item dropdown">
-            <Link className="nav-link dropdown-toggle" to="/#events" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <Link className="nav-link dropdown-toggle" to="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Admin Panel
             </Link>
             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">

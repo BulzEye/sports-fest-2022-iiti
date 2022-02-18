@@ -42,6 +42,24 @@ const EditEvents = (props) => {
                 setLoading(false)
             })
     }
+    
+    const deleteEvent = id => {
+        setLoading(true)
+        axios.delete(`/api/auth/events/${id}`, {
+            headers: {
+                'authorization': authHeader
+            }
+        })
+            .then(res => {
+                setData(res.data)
+                setLoading(false)
+
+            })
+            .catch(err => {
+                setLoading(false)
+                alert(`${err.response.status} - Couldn't delete`)
+            })
+    }
 
     return (
         loading ? <Loader />
@@ -53,27 +71,27 @@ const EditEvents = (props) => {
                                 <h1 className="mb-3 text-center">Add Event</h1>
                                 <div className="mb-3">
                                     <label htmlFor="title" className="form-label">Title of Event</label>
-                                    <input type="text" className="form-control" name="title" id="title" onChange={changeData} />
+                                    <input required type="text" className="form-control" name="title" id="title" onChange={changeData} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="logoImage" className="form-label">Event Images</label>
-                                    <input type="file" className="form-control" name="image" id="logoImage" multiple />
+                                    <input required type="file" className="form-control" name="image" id="logoImage" multiple />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="scheduleLink" className="form-label">Schedule Link of Event</label>
-                                    <input type="text" className="form-control" name="scheduleLink" id="scheduleLink" onChange={changeData} />
+                                    <input required type="text" className="form-control" name="scheduleLink" id="scheduleLink" onChange={changeData} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formLink" className="form-label">Form Link for Event</label>
-                                    <input type="text" className="form-control" name="formLink" id="formLink" onChange={changeData} />
+                                    <input required type="text" className="form-control" name="formLink" id="formLink" onChange={changeData} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="desc" className="form-label">Description of event</label>
-                                    <textarea name="desc" className="form-control" id="desc" rows="8" onChange={changeData} ></textarea>
+                                    <textarea required name="desc" className="form-control" id="desc" rows="8" onChange={changeData} ></textarea>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="format" className="form-label">Format of Event</label>
-                                    <input type="text" className="form-control" name="format" id="format" onChange={changeData} />
+                                    <input required type="text" className="form-control" name="format" id="format" onChange={changeData} />
                                 </div>
                                 <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
@@ -86,7 +104,7 @@ const EditEvents = (props) => {
 
                             {data.map(event => (
                                 <div className="col" key={event._id}>
-                                    <Event data={event} />
+                                    <Event data={event} auth={true} deleteFunction={deleteEvent} />
                                 </div>
                             ))}
 

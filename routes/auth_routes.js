@@ -50,21 +50,48 @@ router.post('/event', (req, res, next) => {
 //Delete Requests
 router.delete('/partner/:id', (req, res, next) => {
     if (req.admin) {
-
+        Partners.deleteOne({ _id: req.params.id })
+            .then(() => {
+                Partners.find({})
+                    .sort({ _id: 'desc' })
+                    .then(partners => {
+                        res.status(200).send(partners)
+                    })
+                    .catch(next)
+            })
+            .catch(next)
     }
     else res.status(403).end()
 });
 
 router.delete('/sponsor/:id', (req, res, next) => {
     if (req.admin) {
-
+        Sponsors.deleteOne({ _id: req.params.id })
+            .then(() => {
+                Sponsors.find({})
+                    .sort({ _id: 'desc' })
+                    .then(sponsors => {
+                        res.status(200).send(sponsors)
+                    })
+                    .catch(next)
+            })
+            .catch(next)
     }
     else res.status(403).end()
 });
 
 router.delete('/event/:id', (req, res, next) => {
     if (req.admin) {
-
+        Events.deleteOne({ _id: req.params.id })
+            .then(() => {
+                Events.find({})
+                    .sort({ _id: 'desc' })
+                    .then(events => {
+                        res.status(200).send(events)
+                    })
+                    .catch(next)
+            })
+            .catch(next)
     }
     else res.status(403).end()
 });

@@ -11,8 +11,8 @@ const EditSponsorsPartners = (props) => {
     const [data, setData] = useState(props.data)
     useEffect(() => {
         setData(props.data)
-    },[props])
-    
+    }, [props])
+
     const [formData, setFormData] = useState({
         title: null,
         description: null,
@@ -46,6 +46,23 @@ const EditSponsorsPartners = (props) => {
             })
     }
 
+    const deleteElement = id => {
+        setLoading(true)
+        axios.delete(`/api/auth/${type}/${id}`, {
+            headers: {
+                'authorization': authHeader
+            }
+        })
+            .then(res => {
+                setData(res.data)
+                setLoading(false)
+            })
+            .catch(err => {
+                setLoading(false)
+                alert(`${err.response.status} - Couldn't delete`)
+            })
+    }
+
     return (
         loading ? <Loader />
             : <div className="editSponsorsPartners">
@@ -56,19 +73,19 @@ const EditSponsorsPartners = (props) => {
                                 <h1 className="mb-3 text-center">Add {type}</h1>
                                 <div className="mb-3">
                                     <label htmlFor="title" className="form-label">Name of {type}</label>
-                                    <input className="form-control" type="text" name="title" id="title" onChange={changeData} />
+                                    <input required className="form-control" type="text" name="title" id="title" onChange={changeData} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="description" className="form-label">Description of {type}</label>
-                                    <textarea className="form-control" name="description" id="description" rows="4" onChange={changeData}></textarea>
+                                    <textarea required className="form-control" name="description" id="description" rows="4" onChange={changeData}></textarea>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="image" className="form-label">{type} Logo Link</label>
-                                    <input type="text" className="form-control" name="image" id="image" onChange={changeData} />
+                                    <input required type="text" className="form-control" name="image" id="image" onChange={changeData} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="type" className="form-label">{type} type</label>
-                                    <input type="text" className="form-control" name="type" id="type" onChange={changeData} />
+                                    <input required type="text" className="form-control" name="type" id="type" onChange={changeData} />
                                 </div>
 
                                 <button type="submit" className="btn btn-primary">Submit</button>
@@ -82,7 +99,7 @@ const EditSponsorsPartners = (props) => {
 
                             {data.map(element => (
                                 <div className="col text-center" key={element._id}>
-                                    <SponsorPartner type={type} data={element} />
+                                    <SponsorPartner type={type} data={element} auth={true} deleteFunction={deleteElement} />
                                 </div>
                             ))}
 
