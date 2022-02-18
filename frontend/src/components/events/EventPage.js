@@ -16,7 +16,7 @@ const EventPage = (props) => {
                     <h1 className="title">
                         {event.title.toUpperCase()}
                     </h1>
-                    <a href={event.form} target="_blank" className="registerLink btn btn-primary btn-lg mt-5">Register</a>
+                    <a href={event.form} target="_blank"  rel="noreferrer" className="registerLink btn btn-primary btn-lg mt-5">Register</a>
                 </div>
             </div>
             <div className="container-fluid py-5" id="eventSchedule">
@@ -39,11 +39,7 @@ const EventPage = (props) => {
                 <div className="container">
                     <h1>Format</h1>
                     <ul>
-                        {event.format.map(element => (
-                            <li key={event.format.indexOf(element)}>
-                                {element}
-                            </li>
-                        ))}
+                        {event.format}
                     </ul>
                     {/* {event.format} */}
                 </div>

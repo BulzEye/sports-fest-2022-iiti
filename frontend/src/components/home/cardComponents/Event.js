@@ -5,7 +5,7 @@ const Event = (props) => {
     const { data } = props
     return (
         <div className="card mb-5">
-            <img src={data.images[0]} alt={data.title} className="card-img-top" />
+            <img src={data.image} alt={data.title} className="card-img-top" />
             <div className="card-body">
                 <h5 className="card-title">{data.title}</h5>
                 <LinkContainer to={`/events/${data._id}`}>

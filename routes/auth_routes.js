@@ -42,7 +42,16 @@ router.post('/sponsor', (req, res, next) => {
 
 router.post('/event', (req, res, next) => {
     if (req.admin) {
-
+        Events.create(req.body)
+            .then(() => {
+                Events.find({})
+                    .sort({ _id: 'desc' })
+                    .then(events => {
+                        res.status(200).send(events)
+                    })
+                    .catch(next)
+            })
+            .catch(next)
     }
     else res.status(403).end()
 });

@@ -7,7 +7,7 @@ import Loader from './components/loader/Loader';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import EventPage from './components/events/EventPage';
-import { Route, Routes, Navigate, Outlet } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import SponsorsBody from './components/sponsors/SponsorsBody';
 import { useLocation } from 'react-router-dom';
 import Footer from './components/Footer';

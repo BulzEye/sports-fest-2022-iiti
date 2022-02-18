@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 //Schemas
 const eventSchema = new mongoose.Schema({
     title: String,
-    images: [String],
+    image: String,
     schedule: String,           //saving file to DB
     form: String,
     description: String,
-    format: [String]
+    format: String
 });
 
 const sponsor_partner_Schema = new mongoose.Schema({
