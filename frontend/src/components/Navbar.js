@@ -11,7 +11,7 @@ const Navbar = (props) => {
 
     const { pathname } = useLocation()
     const setBackground = () => {
-        if (window.scrollY >= 5 || pathname != '/') {
+        if (window.scrollY >= 5 || pathname !== '/') {
             setnavbar(true);
         }
         else {
