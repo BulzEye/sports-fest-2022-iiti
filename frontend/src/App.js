@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 import EditAdmins from './components/AdminPanelPages/EditAdmins';
 import EditEvents from './components/AdminPanelPages/EditEvents';
 import EditSponsorsPartners from './components/AdminPanelPages/EditSponsors_Partners';
+import LoginButton from './components/AdminPanel/LoginButton';
 
 function ScrollToTop() {
   const location = useLocation();
@@ -33,10 +34,26 @@ function App() {
   const [authHeader, setAuthHeader] = useState(false);
 
   const protectedRoutes = [
-    <Route key={1} path="/editEvents" element={<EditEvents data={data.events} />} />,
-    <Route key={2} path="/editSponsors" element={<EditSponsorsPartners type={"Sponsor"} data={data.sponsors} />} />,
-    <Route key={3} path="/editPartners" element={<EditSponsorsPartners type={"Partner"} data={data.partners} />} />,
-    <Route key={4} path="/editAdmins" element={<EditAdmins />} />
+    <Route key={1} path="/editEvents" element={
+      <authContext.Provider value={authHeader}>
+        <EditEvents data={data.events} />
+      </authContext.Provider>
+    } />,
+    <Route key={2} path="/editSponsors" element={
+      <authContext.Provider value={authHeader}>
+        <EditSponsorsPartners type={"Sponsor"} data={data.sponsors} />
+      </authContext.Provider>
+    } />,
+    <Route key={3} path="/editPartners" element={
+      <authContext.Provider value={authHeader}>
+        <EditSponsorsPartners type={"Partner"} data={data.partners} />
+      </authContext.Provider>
+    } />,
+    <Route key={4} path="/editAdmins" element={
+      <authContext.Provider value={authHeader}>
+        <EditAdmins />
+      </authContext.Provider>
+    } />
   ]
 
 
@@ -65,20 +82,24 @@ function App() {
       <div className="bodyDiv">
         {isLoading && <Loader />}
         {!isLoading &&
-          <authContext.Provider value={authHeader}>
-            <Routes>
-              <Route index path="/" element={<HomeBody data={data} />} />
-              <Route path="/events/:eventId" element={<EventPage data={data.events} />} />
-              <Route path="/sponsors" element={<SponsorsBody type="Sponsor" data={data.sponsors} />} />
-              <Route path="/partners" element={<SponsorsBody type="Partner" data={data.partners} />} />
-              <Route path="*" element={<Navigate to="/" />} />
-              {
-                auth ?
-                  protectedRoutes.map(route => route)
-                  : null
-              }
-            </Routes>
-          </authContext.Provider>
+          <Routes>
+            <Route index path="/" element={<HomeBody data={data} />} />
+            <Route path="/events/:eventId" element={<EventPage data={data.events} />} />
+            <Route path="/sponsors" element={<SponsorsBody type="Sponsor" data={data.sponsors} />} />
+            <Route path="/partners" element={<SponsorsBody type="Partner" data={data.partners} />} />
+            {
+              auth ?
+                protectedRoutes.map(route => route)
+                : null
+            }
+            <Route path="/login" element={
+              <authContext.Provider value={updateAuth}>
+                <h1>Admin Panel</h1>
+                <LoginButton />
+              </authContext.Provider>
+            } />
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
         }
       </div>
       {/* <TailSpin color="#00BFFF" height={80} width={80} /> */}

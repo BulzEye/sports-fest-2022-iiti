@@ -1,6 +1,6 @@
 import React from 'react';
 import { GoogleLogout } from 'react-google-login';
-import clientID from './googleClient';
+import clientID from '../../googleClient';
 import { authContext } from '../../App';
 import { useContext } from 'react';
 

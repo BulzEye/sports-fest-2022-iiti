@@ -8,7 +8,7 @@ const client = new OAuth2Client("1059582039946-3rije6k0k92ertj2utffkrvdjjgdrkm0.
 route.post('/', (req, res, next) => {
     const { googleToken } = req.body;
 
-    client.verifyIdToken({ idToken: googleToken, audience: "1059582039946-3rije6k0k92ertj2utffkrvdjjgdrkm0.apps.googleusercontent.com" })
+    client.verifyIdToken({ idToken: googleToken, audience: process.env.GOOGLE_CLIENT_ID })
         .then(googleResponse => {
             const { email_verified, email } = googleResponse.payload;
             if (email_verified) {
