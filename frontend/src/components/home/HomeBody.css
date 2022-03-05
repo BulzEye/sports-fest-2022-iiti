@@ -25,14 +25,11 @@ div#header h1.title {
     
 }
 
-div.homeBody h1 {
-    color: #fff;
-
-}
 
 h1 {
 
     font-size: 1.75em;
+    color: #fff;
     
 }
 
@@ -98,27 +95,29 @@ div#about .container {
     padding: 30px;
 }
 
-div#schedule {
-    
-    background-color: darkseagreen;
-}
-
 div#schedule .container {
-    background-color: rgba(192, 219, 192, 0.6);
+    background-color: rgba(10, 2, 43, 0.623);
 }
 
-div#sponsors {
-    background-color: rgb(238, 210, 210);
+div#sponsors,
+div#partners {
+    background-color: #fff;
+    color: black;
 }
 
 div#events,
-div#partners {
+div#schedule {
     background-image: url(/public/poster.jpg);
     background-size: cover;
     background-attachment: fixed;
 }
 
+.bh{
+    color: black;
+}
+
 div#eventscard,
+div#partnercard,
 div#sponsercard {
     display: flex;
     justify-content: center;
