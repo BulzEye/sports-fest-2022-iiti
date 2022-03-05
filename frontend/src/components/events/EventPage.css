@@ -1,5 +1,8 @@
 div#eventHeader {
     /* Code to be added later */
+    background-image: url(/public/eventdesc.jpg);
+    background-size: cover;
+    /* background-attachment: fixed; */
     background-color: beige;
     padding-top: 28%;
     padding-bottom: 10%;
@@ -37,3 +40,5 @@ div#eventDescription .container {
     z-index: 1;
     border-radius: 20px;
 }
+
+
