@@ -19,14 +19,19 @@ div#header {
     /* height: 100vh; */
 }
 
-h1.title {
+div#header h1.title {
 
     font-size: 3.75em;
     
 }
+
+div.homeBody h1 {
+    color: #fff;
+
+}
+
 h1 {
 
-    color: #fff;
     font-size: 1.75em;
     
 }

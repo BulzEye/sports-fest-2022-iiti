@@ -23,8 +23,7 @@ const HomeBody = (props) => {
       <div className="container-fluid py-5" id="about">
         <div className="container py-5">
           <h1>About</h1>
-          {/* TODO: Add padding to p tag */}
-          <p>
+          <p className="p-3 mb-0">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt,
             soluta, facere dolore porro, modi laudantium eligendi deleniti
             voluptates fuga nemo dolores. Quidem quo, officiis maiores

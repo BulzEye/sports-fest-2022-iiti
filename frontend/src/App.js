@@ -94,7 +94,7 @@ function App() {
             }
             <Route path="/login" element={
               <authContext.Provider value={updateAuth}>
-                <h1>Admin Panel</h1>
+                <h1 className='pb-5' style={{"paddingTop": "5%"}}>Admin Panel</h1>
                 <LoginButton />
               </authContext.Provider>
             } />

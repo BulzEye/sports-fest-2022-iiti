@@ -1,4 +1,4 @@
-.btn {
+div.login-button .btn {
     padding: 8px;
     background-color: transparent;
     border: 1px solid #c6c6c748;
@@ -7,6 +7,6 @@
     margin-left: 20px;
     
 }
-.btn:hover {
+div.login-button .btn:hover {
     background-color: #ffffff3f;
 }
