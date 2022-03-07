@@ -3,7 +3,7 @@ const { OAuth2Client } = require('google-auth-library');
 const Admin = require('../models').adminModel;
 const genToken = require('../config/auth').genToken;
 
-const client = new OAuth2Client("1059582039946-3rije6k0k92ertj2utffkrvdjjgdrkm0.apps.googleusercontent.com");
+const client = new OAuth2Client(process.env.GOOGLE_CLIENT_ID);
 
 route.post('/', (req, res, next) => {
     const { googleToken } = req.body;
