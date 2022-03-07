@@ -17,7 +17,7 @@ const EventPage = (props) => {
                     <h1 className="title">
                         {event.title.toUpperCase()}
                     </h1>
-                    <a href={event.form} target="_blank"  rel="noreferrer" className="registerLink btn btn-primary btn-lg mt-5">Register</a>
+                    <a href={event.form} target="_blank"  rel="noreferrer" className="registerLink btn btn-dark btn-lg mt-5">Register</a>
                 </div>
             </div>
             <div className="container-fluid py-5" id="eventSchedule">

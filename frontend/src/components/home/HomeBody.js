@@ -17,7 +17,7 @@ const HomeBody = (props) => {
         <video src={bgvid} autoPlay loop muted />
         <div className="container py-5">
           <h1 className="title">LAKSHYA 2022</h1>
-          <h1>IIT Indore</h1>
+          <h1 style={{marginTop: '20px'}}>IIT Indore</h1>
         </div>
       </div>
       <div className="container-fluid py-5" id="about">

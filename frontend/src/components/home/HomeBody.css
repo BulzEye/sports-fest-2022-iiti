@@ -14,14 +14,17 @@ div#header {
     background-size: cover;
     background-attachment: fixed;
     /* background-color: beige; */
-    padding-top: 28%;
-    padding-bottom: 10%;
+    padding-top: 12%;
+    padding-bottom: 12%;
     /* height: 100vh; */
 }
 
 div#header h1.title {
 
     font-size: 3.75em;
+    color: #fff;
+    text-align: center;
+    text-shadow: 1px 1px 10px rgb(255, 255, 255);
     
 }
 
@@ -30,6 +33,7 @@ h1 {
 
     font-size: 1.75em;
     color: #fff;
+
     
 }
 
@@ -63,7 +67,7 @@ h1 {
     }
 
     div#header {
-        padding-top: 15%;
+        padding-top: 8%;
     }
 }
 
