@@ -5,12 +5,12 @@ const Footer = () => {
         <footer className="site-footer" id="footer">
             <div className="container">
                 <div className="row mb-5">
-                    <div className="col-md-3 md-5">
+                    <div className="col-md-3 mb-5">
                         <h2>About us</h2>
                         <p>Indian Institute of Technology, Indore was established by the Government of India in 2009 along with eight other IITs. Since its inception IIT, Indore has been able to deliver outstanding performance in all aspects. In recognition of its stellar performance, IIT Indore is officially proclaimed as an Institute of National Importance by the Government of India.</p>
                         <p><a href="https://www.iiti.ac.in/page/about-us">Click here to learn more</a></p>
                     </div>
-                    <div className="col-md-3 md-5">
+                    <div className="col-md-3 mb-5 d-flex flex-column align-items-center">
                         <h2>Contact Details</h2>
                         <ul className="list-unstyled footer-link">
 
