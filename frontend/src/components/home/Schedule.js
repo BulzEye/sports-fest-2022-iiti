@@ -5,17 +5,25 @@ const Schedule = (props) => {
         <table className="table table-bordered mx-auto">
             <thead>
                 <tr>
-                    <th>Date</th>
                     <th>Timeline</th>
+                    <th>Date</th>
                 </tr>
             </thead>
             <tbody>
-                <tr colSpan={2} className="text-center">
+                <tr>
                     <td>
-                        <em>Coming soon...</em>
+                        Sports Events
                     </td>
                     <td>
-                        <em>Coming soon...</em>
+                        7th to 15th March
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Online Events
+                    </td>
+                    <td>
+                        11th to 13th March
                     </td>
                 </tr>
             </tbody>
