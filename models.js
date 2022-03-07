@@ -14,7 +14,8 @@ const sponsor_partner_Schema = new mongoose.Schema({
     title: String,
     image: String,
     type: String,
-    description: String
+    description: String,
+    website: String
 });
 const adminSchema = new mongoose.Schema({
     username: String,
