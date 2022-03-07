@@ -18,18 +18,18 @@ const Footer = () => {
                             <ul className="list-styled">
                                 <li className="d-flex flex-column align-items-start">
                                     <span><strong>Shrevesh</strong></span>
-                                    <span>Contact No.: <span className="text-white">9999999999</span></span>
+                                    <span>Contact No.: <span className="text-white">+91 97902 77670</span></span>
                                 </li>
                                 <li className="d-flex flex-column align-items-start">
                                     <span><strong>Prakhar Gautam</strong></span>
-                                    <span>Contact No.: <span className="text-white">9999999999</span></span>
+                                    <span>Contact No.: <span className="text-white">+91 94588 81227</span></span>
                                 </li>
                             </ul>
                             <h6 className="text-start">General Secretary Sports:</h6>
                             <ul className="list-styled">
                                 <li className="d-flex flex-column align-items-start">
                                     <span><strong>Sai Praveen Surapu</strong></span>
-                                    <span>Contact No.: <span className="text-white">9999999999</span></span>
+                                    <span>Contact No.: <span className="text-white">+91 62819 53773</span></span>
                                     <span className="me-2">Email: <span className="text-white">gs.sports@iiti.ac.in</span></span>
                                 </li>
                             </ul>
@@ -50,19 +50,17 @@ const Footer = () => {
                     <div className="col-md-3 mb-5">
                         <h2>Quick links</h2>
                         <ul className="list-unstyled footer-link">
-                            <li><a href="#">IIT Indore website</a></li>
-                            <li><a href="#">Sports @IIT Indore</a></li>
+                            <li><a href="https://www.iiti.ac.in/">IIT Indore website</a></li>
+                            <li><a href="http://people.iiti.ac.in/~sports/">Sports @IIT Indore</a></li>
                             <li><a href="https://www.iiti.ac.in/page/contactus">Contact us</a></li>
                         </ul>
                     </div>
                     <div className="col-md-3">
                         <h2>Our social media</h2>
                         <ul className="list-unstyled footer-link d-flex justify-content-center footer-social">
-                            <li><a href="#"><span className="fa fa-facebook" /></a></li>
-                            <li><a href="#"><span className="fa fa-twitter" /></a></li>
+                            <li><a href="https://www.facebook.com/Lakshya-IIT-Indore-103867888894025/"><span className="fa fa-facebook" /></a></li>
                             <li><a href="https://www.instagram.com/lakshyaiiti/"><span className="fa fa-instagram" /></a></li>
-                            <li><a href="#"><span className="fa fa-linkedin" /></a></li>
-                            <li><a href="#"><span className="fa fa-youtube" /></a></li>
+                            <li><a href="https://www.linkedin.com/company/lakshyafest-iit-indore/"><span className="fa fa-linkedin" /></a></li>
                         </ul>
                     </div>
                 </div>

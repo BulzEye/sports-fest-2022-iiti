@@ -45,6 +45,7 @@
 .site-footer a {
     color: #ffc107;
     border-bottom: 1px solid transparent;
+    transition: 0.2s color, 0.2s background-color, 0.2s border-color;
 }
 
 .site-footer a:hover {
