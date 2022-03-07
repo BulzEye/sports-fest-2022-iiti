@@ -14,7 +14,7 @@ const Footer = () => {
                         <h2>Contact &amp; Address</h2>
                         <ul className="list-unstyled footer-link">
                             <li className="d-flex">
-                                <span className="me-3">Addresse:</span>
+                                <span className="me-3">Address:</span>
                                 <span className="text-white">IITI, Khandwa Road, Simrol, Indore 453552 (M.P) India</span>
                             </li>
                             <li className="d-flex">
@@ -38,7 +38,7 @@ const Footer = () => {
                     </div>
                     <div className="col-md-3">
                         <h2>Our social media</h2>
-                        <ul className="list-unstyled footer-link d-flex footer-social">
+                        <ul className="list-unstyled footer-link d-flex justify-content-center footer-social">
                             <li><a href="#"><span className="fa fa-facebook" /></a></li>
                             <li><a href="#"><span className="fa fa-twitter" /></a></li>
                             <li><a href="#"><span className="fa fa-instagram" /></a></li>

@@ -3,6 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { authContext } from "../../App";
 import SponsorPartner from "../home/cardComponents/SponsorPartner";
 import Loader from "../loader/Loader";
+import "./EditSponsors_Partners.css";
 
 const EditSponsorsPartners = (props) => {
     const { type } = props;

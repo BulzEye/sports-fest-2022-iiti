@@ -23,8 +23,7 @@ const HomeBody = (props) => {
       <div className="container-fluid py-5" id="about">
         <div className="container py-5">
           <h1>About</h1>
-          {/* TODO: Add padding to p tag */}
-          <p>
+          <p className="p-3 mb-0">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt,
             soluta, facere dolore porro, modi laudantium eligendi deleniti
             voluptates fuga nemo dolores. Quidem quo, officiis maiores
@@ -66,7 +65,7 @@ const HomeBody = (props) => {
       </div>
       <div className="container-fluid py-5" id="sponsors">
         <div className="container">
-          <h1>Sponsors</h1>
+          <h1 className="bh">Sponsors</h1>
           <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 pt-5" id="sponsercard">
             {/* <div className="col text-center">
                             <small className="sponsor-type text-muted">Media Sponsor</small>
@@ -84,8 +83,8 @@ const HomeBody = (props) => {
       </div>
       <div className="container-fluid py-5" id="partners">
         <div className="container">
-          <h1>Partners</h1>
-          <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 pt-5">
+          <h1 className="bh">Partners</h1>
+          <div className="row row-cols-1 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 pt-5" id="partnercard">
             {/* <div className="col text-center">
                             <small className="partner-type text-muted">Outreach Partner</small>
                             <img src="logo-placeholder-image.png" alt="" className="partner-image img-fluid" />

@@ -31,7 +31,7 @@ function LoginButton() {
   };
 
   return (
-    <div className="m-auto">
+    <div className="login-button m-auto mb-5">
 
       <GoogleLogin
         clientId={clientID}

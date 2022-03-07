@@ -2,14 +2,25 @@ import "./Navbar.css";
 // import { NavHashLink as NavLink } from "react-router-hash-link";
 import { HashLink as Link } from "react-router-hash-link";
 import AdminPanel from "./AdminPanel/AdminPanel";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
 
 const Navbar = (props) => {
 
+    
     const [navbar, setnavbar] = useState(false);
-
+    
     const { pathname } = useLocation()
+    console.log(pathname);
+    useEffect(() => {
+        if (pathname !== '/') {
+            setnavbar(true);
+        }
+        else {
+            setnavbar(false);
+        }
+    }, [pathname]);
+    
     const setBackground = () => {
         if (window.scrollY >= 5 || pathname !== '/') {
             setnavbar(true);
