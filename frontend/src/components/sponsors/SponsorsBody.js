@@ -20,12 +20,12 @@ const SponsorsBody = (props) => {
                                         <div className="card-header">{sponsor.type + " " + pageType}</div>
                                         <img src={sponsor.image} alt="" className="card-img-top" />
                                         <div className="card-body">
+                                            <a href={sponsor.website} target="_blank" rel="noreferrer" className="sponsor-link-lakshya" title="Visit sponsor website">
                                             <h5 className="card-title">
-                                                {sponsor.title}
-                                                <a href={sponsor.website} target="_blank" rel="noreferrer">
-                                                    <span className="fa fa-arrow-up-right-from-square" />
-                                                </a>
+                                                <span className="link-text">{sponsor.title}</span>
+                                                    <span className="fas fa-arrow-up-right-from-square ps-2" />
                                             </h5>
+                                            </a>
                                             <p className="card-text">{sponsor.description}</p>
                                         </div>
                                     </div>

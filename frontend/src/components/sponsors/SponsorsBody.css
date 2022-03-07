@@ -1,3 +1,33 @@
 div#body {
     padding-top: 5%;
 }
+
+a.sponsor-link-lakshya {
+    color: black;
+    text-decoration: none;
+    transition: 0.3s color;
+}
+
+a.sponsor-link-lakshya:hover {
+    /* text-decoration: underline; */
+    color: gray;
+    cursor: pointer;
+}
+
+span.link-text {
+    display: inline-block;
+}
+
+a.sponsor-link-lakshya span.link-text::after {
+    content: '';
+    width: 0px;
+    height: 1px;
+    display: block;
+    background: black;
+    transition: 300ms;
+}
+  
+a.sponsor-link-lakshya:hover span.link-text::after {
+    width: 100%;
+    background: gray;
+}
