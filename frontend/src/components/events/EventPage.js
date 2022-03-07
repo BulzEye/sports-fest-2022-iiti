@@ -12,7 +12,7 @@ const EventPage = (props) => {
 
     return (
         <div className="eventPage">
-            <div className="container-fluid" id="eventHeader">
+            <div className="container-fluid" id="eventHeader" style={(event.image) ? {backgroundImage: `url(${event.image})`} : {backgroundImage: `url(/public/eventdesc.jpg)`}}>
                 <div className="container py-5">
                     <h1 className="title">
                         {event.title.toUpperCase()}
@@ -48,7 +48,7 @@ const EventPage = (props) => {
             <div className="container-fluid py-5" id="eventFormat">
                 <div className="container">
                     <h1 className="text-dark">Format</h1>
-                    <a href={event.format} className="btn btn-dark btn-lg mt-5">Link to D2C</a>
+                    <a href={event.format} className="btn btn-dark btn-lg mt-4">Link to D2C</a>
                     {/* {event.format} */}
                 </div>
             </div>
