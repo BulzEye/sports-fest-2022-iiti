@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import Schedule from "../home/Schedule";
+import ScheduleEvent from "./ScheduleEvent";
 import "./EventPage.css";
 
 const EventPage = (props) => {
@@ -32,16 +32,23 @@ const EventPage = (props) => {
             </div>
             <div className="container-fluid py-5" id="eventSchedule">
                 <div className="container py-5">
-                    <h1>Schedule</h1>
-                    <Schedule />
+                    <h1 className="text-dark">Schedule</h1>
+                    <div className="pt-4">
+                        <ScheduleEvent data={event.schedule} />
+                    </div>
                 </div>
             </div>
+            {(event.prizePool) ? <div className="container-fluid py-5" id="eventPrizePool">
+                <div className="container">
+                    <h1 className="text-dark">Prize Pool</h1>
+                    <p>{event.prizePool}</p>
+                    {/* {event.format} */}
+                </div>
+            </div> : undefined}
             <div className="container-fluid py-5" id="eventFormat">
                 <div className="container">
-                    <h1>Format</h1>
-                    <ul>
-                        {event.format}
-                    </ul>
+                    <h1 className="text-dark">Format</h1>
+                    <a href={event.format} className="btn btn-dark btn-lg mt-5">Link to D2C</a>
                     {/* {event.format} */}
                 </div>
             </div>
