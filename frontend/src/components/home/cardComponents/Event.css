@@ -7,6 +7,6 @@ div#events div.card:hover {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 }
 
-img{
+img#home-event-card-img {
     height: 50px;
 }

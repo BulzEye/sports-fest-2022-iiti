@@ -36,7 +36,7 @@ const Navbar = (props) => {
         <nav className={navbar ? 'navbar navbar-expand-lg navbar-dark fixed-top active' : 'navbar navbar-expand-lg navbar-dark fixed-top'}>
             <div className="container-fluid container">
                 <Link className="navbar-brand" to="/">
-                    <img src={Logo} alt="logo"></img>
+                    <img src={Logo} alt="logo" id="nav-logo"></img>
                 </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
