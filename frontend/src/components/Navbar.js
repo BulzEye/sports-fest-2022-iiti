@@ -11,7 +11,7 @@ const Navbar = (props) => {
     const [navbar, setnavbar] = useState(false);
     
     const { pathname } = useLocation()
-    console.log(pathname);
+    // console.log(pathname);
     useEffect(() => {
         if (pathname !== '/') {
             setnavbar(true);
@@ -20,7 +20,7 @@ const Navbar = (props) => {
             setnavbar(false);
         }
     }, [pathname]);
-    
+
     const setBackground = () => {
         if (window.scrollY >= 5 || pathname !== '/') {
             setnavbar(true);
