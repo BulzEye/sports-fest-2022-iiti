@@ -32,11 +32,12 @@ div#eventSchedule .container {
 }
 
 div#eventDescription {
-    background-color: rgba(132, 198, 255);
+    background-image: linear-gradient(to right, rgb(10, 2, 43) , rgb(12, 7, 85));
 }
 
 div#eventDescription .container {
-    background-color: rgba(240, 248, 255, 0.6);
+    background-color: rgba(26, 118, 199, 0.507);
+    color: rgb(211, 208, 235);
     z-index: 1;
     border-radius: 20px;
 }
