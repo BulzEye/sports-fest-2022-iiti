@@ -12,7 +12,7 @@ const HomeBody = (props) => {
 
   return (
     <div className="homeBody">
-      
+
       <div className="container-fluid" id="header">
         <video src={bgvid} autoPlay loop muted />
         <div className="container py-5">
@@ -23,14 +23,22 @@ const HomeBody = (props) => {
       <div className="container-fluid py-5" id="about">
         <div className="container py-5">
           <h1>About</h1>
-          <p className="p-3 mb-0">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt,
-            soluta, facere dolore porro, modi laudantium eligendi deleniti
-            voluptates fuga nemo dolores. Quidem quo, officiis maiores
-            architecto similique aspernatur harum animi nam saepe sequi nihil
-            voluptatum adipisci consectetur sint iure, quaerat voluptas ipsa
-            quam! Sapiente, aut consequuntur architecto culpa vel cumque!
-          </p>
+          <div className="p-3 mb-0">
+            <blockquote className="blockquote fst-italic">
+              <p>
+                "Sports teaches you character, it teaches you to play by the rules, it teaches you to know what it feels like to win and lose, it teaches you about life."
+              </p>
+            </blockquote>
+            <figcaption className="blockquote-footer fst-italic text">
+              Billie Jean King
+            </figcaption>
+            <p>
+              In our institute, sports are a part of the daily routine. We see them as a means to stay healthy and as a key to having a zestful day. To keep tabs on such a prime part of our day, we organise events regularly. It's time we spice things up and launch a grand event that consists of all these fascinating events.
+            </p>
+            <p>
+              We present to you LAKSHYA-1.0, IIT Indore's very own annual sports fest specifically designed to assuage all sports fanatics.
+            </p>
+          </div>
         </div>
       </div>
       <div className="container-fluid py-5" id="events">

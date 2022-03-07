@@ -8,6 +8,7 @@ const EventPage = (props) => {
     console.log(props.data);
     // TODO: change function below to check for id instead of event name
     const [event] = useState(props.data.find((event) => (event._id === eventId)));
+    // console.log(event);
 
     return (
         <div className="eventPage">
