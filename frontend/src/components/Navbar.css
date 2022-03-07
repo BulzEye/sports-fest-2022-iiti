@@ -10,7 +10,7 @@
 }
 
 .navbar-nav a {
-    font-family: poppins;
+    /* font-family: poppins; */
     font-size: 18px;
     
 }
@@ -40,6 +40,7 @@ div#navbartools {
     display: flex;
     justify-content: space-between;
 }
+
 @media only screen and (max-width: 767px) {
     .navbar-nav.ms-auto {
         background: rgba(0, 0, 0, 0.89);

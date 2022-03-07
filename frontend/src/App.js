@@ -77,7 +77,7 @@ function App() {
     <div className="App">
       <ScrollToTop />
       <authContext.Provider value={updateAuth}>
-        <Navbar auth={auth} />
+        <Navbar auth={auth} events={!isLoading && data.events.map((event) => ({_id: event._id, title: event.title}))} />
       </authContext.Provider>
       <div className="bodyDiv">
         {isLoading && <Loader />}

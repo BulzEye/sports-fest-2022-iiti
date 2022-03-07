@@ -51,8 +51,14 @@ const Navbar = (props) => {
                                 Events
                             </Link>
                             <ul className="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><Link className="dropdown-item" to="/#events">Sport Events</Link></li>
-                                <li><Link className="dropdown-item" to="/#events">Online Events</Link></li>
+                                {(props.events) ? props.events.map((event) => (
+                                    <li key={event._id}><Link className="dropdown-item" to={`/events/${event._id}`}>{event.title}</Link></li>
+                                )) : <li className="text-center p-1">
+                                    <div className="spinner-border spinner-border-sm" role="status">
+                                        <span className="visually-hidden">Loading...</span>
+                                    </div>
+                                </li> }
+                                {/* <li><Link className="dropdown-item" to="/#events">Online Events</Link></li> */}
                                 {/* <li>
                                   <hr class="dropdown-divider">
                               </li>*/}
