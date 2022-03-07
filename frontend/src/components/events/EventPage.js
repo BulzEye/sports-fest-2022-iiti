@@ -20,12 +20,6 @@ const EventPage = (props) => {
                     <a href={event.form} target="_blank"  rel="noreferrer" className="registerLink btn btn-dark btn-lg mt-5">Register</a>
                 </div>
             </div>
-            <div className="container-fluid py-5" id="eventSchedule">
-                <div className="container py-5">
-                    <h1>Schedule</h1>
-                    <Schedule />
-                </div>
-            </div>
             <div className="container-fluid py-5" id="eventDescription">
                 <div className="container py-5">
                     {/* <h1>Description</h1> */}
@@ -34,6 +28,12 @@ const EventPage = (props) => {
                         {event.description}
                         {/* Lorem ipsum dolor sit, amet consectetur adipisicing elit. Incidunt, soluta, facere dolore porro, modi laudantium eligendi deleniti voluptates fuga nemo dolores. Quidem quo, officiis maiores architecto similique aspernatur harum animi nam saepe sequi nihil voluptatum adipisci consectetur sint iure, quaerat voluptas ipsa quam! Sapiente, aut consequuntur architecto culpa vel cumque! */}
                     </p>
+                </div>
+            </div>
+            <div className="container-fluid py-5" id="eventSchedule">
+                <div className="container py-5">
+                    <h1>Schedule</h1>
+                    <Schedule />
                 </div>
             </div>
             <div className="container-fluid py-5" id="eventFormat">
