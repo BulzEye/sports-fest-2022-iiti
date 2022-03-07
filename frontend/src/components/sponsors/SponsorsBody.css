@@ -43,8 +43,9 @@ a.upArrow {
     border-radius: 50%;
     height: 50px;
     width: 50px;
-    bottom: 50px;
-    right: 50px;
+    
+    bottom: 3vw;
+    right: 3vw;
     background-color: rgba(10, 10, 10);
     display: flex;
     justify-content: center;
