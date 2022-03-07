@@ -4,6 +4,7 @@ import { HashLink as Link } from "react-router-hash-link";
 import AdminPanel from "./AdminPanel/AdminPanel";
 import { useEffect, useState } from 'react';
 import { useLocation } from "react-router-dom";
+import Logo from "./logo.png";
 
 const Navbar = (props) => {
 
@@ -34,7 +35,9 @@ const Navbar = (props) => {
     return (
         <nav className={navbar ? 'navbar navbar-expand-lg navbar-dark fixed-top active' : 'navbar navbar-expand-lg navbar-dark fixed-top'}>
             <div className="container-fluid container">
-                <Link className="navbar-brand" to="/">SportFest</Link>
+                <Link className="navbar-brand" to="/">
+                    <img src={Logo} alt="logo"></img>
+                </Link>
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon" />
                 </button>
