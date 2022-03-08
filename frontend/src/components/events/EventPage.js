@@ -40,8 +40,10 @@ const EventPage = (props) => {
                     <div className="pt-4">
                         <ScheduleEvent data={event} />
                     </div>
-                    <h2 className="mt-5">Fixtures</h2>
-                    <a href={event.fixtures} target="_blank" rel="noreferrer" className="btn btn-dark mt-3">Link</a>
+                    {(event.fixtures) ? <div className="eventFixtures mt-5">
+                        <h2>Fixtures</h2>
+                        <a href={event.fixtures} target="_blank" rel="noreferrer" className="btn btn-dark mt-3">Link</a>
+                    </div> : null}
                 </div>
             </div>
             {(event.prizePool) ? <div className="container-fluid pt-5 pb-4" id="eventPrizePool">
