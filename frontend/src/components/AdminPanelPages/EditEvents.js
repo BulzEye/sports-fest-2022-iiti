@@ -93,6 +93,26 @@ const EditEvents = (props) => {
                                     <label htmlFor="format" className="form-label">Format of Event</label>
                                     <textarea required type="text" className="form-control" name="format" id="format" onChange={changeData}></textarea>
                                 </div>
+                                <div className="mb-3">
+                                    <label htmlFor="fixtures" className="form-label">Fixtures:</label>
+                                    <input required type="text" className="form-control" name="fixtures" id="fixtures" onChange={changeData} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="registrationStart" className="form-label">Registration Starts:</label>
+                                    <input required type="text" className="form-control" name="registrationStart" id="registrationStart" onChange={changeData} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="registrationDeadline" className="form-label">Registration Deadline:</label>
+                                    <input required type="text" className="form-control" name="registrationDeadline" id="registrationDeadline" onChange={changeData} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="durationduration" className="form-label">Event Duration:</label>
+                                    <input required type="text" className="form-control" name="duration" id="duration" onChange={changeData} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="prizePool" className="form-label">Prize Pool</label>
+                                    <input required type="text" name="prizePool" className="form-control" id="prizePool" rows="8" onChange={changeData} />
+                                </div>
                                 <button type="submit" className="btn btn-primary">Submit</button>
                             </form>
                         </div>

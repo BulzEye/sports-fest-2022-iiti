@@ -12,12 +12,12 @@ const EventPage = (props) => {
 
     return (
         <div className="eventPage">
-            <div className="container-fluid" id="eventHeader" style={(event.image) ? {backgroundImage: `url(${event.image})`} : {backgroundImage: `url(/public/eventdesc.jpg)`}}>
+            <div className="container-fluid" id="eventHeader" style={(event.image) ? { backgroundImage: `url(${event.image})` } : { backgroundImage: `url(/public/eventdesc.jpg)` }}>
                 <div className="container py-5">
                     <h1 className="title">
                         {event.title.toUpperCase()}
                     </h1>
-                    <a href={event.form} target="_blank"  rel="noreferrer" className="registerLink btn btn-dark btn-lg mt-5">Register</a>
+                    <a href={event.form} target="_blank" rel="noreferrer" className="registerLink btn btn-dark btn-lg mt-5">Register</a>
                 </div>
             </div>
             <div className="container-fluid py-5" id="eventDescription">
@@ -34,7 +34,11 @@ const EventPage = (props) => {
                 <div className="container py-5">
                     <h1 className="text-dark">Schedule</h1>
                     <div className="pt-4">
-                        <ScheduleEvent data={event.schedule} />
+                        Fixtures: 
+                        <a href={event.fixtures} target="_blank" rel="noreferrer" className="mt-5">Link</a>
+                    </div>
+                    <div className="pt-4">
+                        <ScheduleEvent data={event} />
                     </div>
                 </div>
             </div>
@@ -44,7 +48,7 @@ const EventPage = (props) => {
                     <p>{event.prizePool}</p>
                     {/* {event.format} */}
                 </div>
-            </div> : undefined}
+            </div> : null}
             <div className="container-fluid py-5" id="eventFormat">
                 <div className="container">
                     <h1 className="text-dark">Format</h1>

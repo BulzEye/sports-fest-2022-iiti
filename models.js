@@ -4,10 +4,15 @@ const mongoose = require('mongoose');
 const eventSchema = new mongoose.Schema({
     title: String,
     image: String,
-    schedule: String,           //saving file to DB
+    schedule: String,
     form: String,
     description: String,
-    format: String
+    format: String,
+    registrationStart: String,
+    registrationDeadline: String,
+    duration: String,
+    prizePool: String,
+    fixtures: String
 });
 
 const sponsor_partner_Schema = new mongoose.Schema({

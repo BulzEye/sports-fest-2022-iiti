@@ -15,7 +15,7 @@ const Schedule = (props) => {
                         Registrations start
                     </td>
                     <td>
-                        {props.data.regstart}
+                        {props.data.registrationStart}
                     </td>
                 </tr>
                 <tr>
@@ -23,7 +23,7 @@ const Schedule = (props) => {
                         Registration deadline
                     </td>
                     <td>
-                        {props.data.regend}
+                        {props.data.registrationDeadline}
                     </td>
                 </tr>
                 <tr>
