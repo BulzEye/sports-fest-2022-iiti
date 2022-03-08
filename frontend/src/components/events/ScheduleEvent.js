@@ -3,13 +3,13 @@ import "./ScheduleEvent.css";
 const Schedule = (props) => {
     return ( 
         <table className="table table-bordered mx-auto">
-            <thead>
+            {/* <thead> */}
+            {/* </thead> */}
+            <tbody>
                 <tr>
                     <th>Timeline</th>
                     <th>Date</th>
                 </tr>
-            </thead>
-            <tbody>
                 <tr>
                     <td>
                         Registrations start
