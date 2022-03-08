@@ -71,7 +71,7 @@ const EditSponsorsPartners = (props) => {
                     <div className="container addPartnerSponsor d-flex justify-content-center mb-5">
                         <div className="card addSP p-4">
                             <form onSubmit={handleSubmit}>
-                                <h1 className="mb-3 text-center">Add {type}</h1>
+                                <h1 className="mb-3 text-center" style={{"color": "black"}}>Add {type}</h1>
                                 <div className="mb-3">
                                     <label htmlFor="title" className="form-label">Name of {type}</label>
                                     <input required className="form-control" type="text" name="title" id="title" onChange={changeData} />
@@ -100,7 +100,7 @@ const EditSponsorsPartners = (props) => {
 
                             {data.map(element => (
                                 <div className="col text-center" key={element._id}>
-                                    <SponsorPartner type={type} data={element} auth={true} deleteFunction={deleteElement} />
+                                    <SponsorPartner type={type} data={element} auth={true} deleteFunction={deleteElement} edit={true}/>
                                 </div>
                             ))}
 

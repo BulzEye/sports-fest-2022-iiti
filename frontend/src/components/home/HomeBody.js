@@ -57,7 +57,7 @@ const HomeBody = (props) => {
 
             {events.map((event) => (
               <div className="col" key={event._id}>
-                <Event data={event} />
+                <Event data={event} edit={false}/>
               </div>
             ))}
           </div>
@@ -85,7 +85,7 @@ const HomeBody = (props) => {
 
             {sponsors.map((sponsor) => (
               <div className="col text-center" key={sponsor._id}>
-                <SponsorPartner type="Sponsor" data={sponsor} />
+                <SponsorPartner type="Sponsor" data={sponsor} edit={false}/>
               </div>
             ))}
           </div>
@@ -103,7 +103,7 @@ const HomeBody = (props) => {
 
             {partners.map((partner) => (
               <div className="col text-center" key={partner._id}>
-                <SponsorPartner type="Partner" data={partner} />
+                <SponsorPartner type="Partner" data={partner} edit={false}/>
               </div>
             ))}
           </div>

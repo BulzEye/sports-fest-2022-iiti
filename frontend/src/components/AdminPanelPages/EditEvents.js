@@ -68,7 +68,7 @@ const EditEvents = (props) => {
                     <div className="container addEvent d-flex justify-content-center mb-5">
                         <div className="card eventAddForm p-4">
                             <form onSubmit={handleSubmit}>
-                                <h1 className="mb-3 text-center">Add Event</h1>
+                                <h1 className="mb-3 text-center" style={{"color": "black"}}>Add Event</h1>
                                 <div className="mb-3">
                                     <label htmlFor="title" className="form-label">Title of Event</label>
                                     <input required type="text" className="form-control" name="title" id="title" onChange={changeData} />
@@ -124,7 +124,7 @@ const EditEvents = (props) => {
 
                             {data.map(event => (
                                 <div className="col" key={event._id}>
-                                    <Event data={event} auth={true} deleteFunction={deleteEvent} />
+                                    <Event data={event} auth={true} deleteFunction={deleteEvent} edit={true}/>
                                 </div>
                             ))}
 

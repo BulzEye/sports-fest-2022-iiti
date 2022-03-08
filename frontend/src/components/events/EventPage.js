@@ -33,23 +33,25 @@ const EventPage = (props) => {
             <div className="container-fluid py-5" id="eventSchedule">
                 <div className="container py-5">
                     <h1 className="text-dark">Schedule</h1>
-                    <div className="pt-4">
+                    {/* <div className="pt-4">
                         Fixtures: 
                         <a href={event.fixtures} target="_blank" rel="noreferrer" className="mt-5">Link</a>
-                    </div>
+                    </div> */}
                     <div className="pt-4">
                         <ScheduleEvent data={event} />
                     </div>
+                    <h2 className="mt-5">Fixtures</h2>
+                    <a href={event.fixtures} target="_blank" rel="noreferrer" className="btn btn-dark mt-3">Link</a>
                 </div>
             </div>
-            {(event.prizePool) ? <div className="container-fluid py-5" id="eventPrizePool">
+            {(event.prizePool) ? <div className="container-fluid pt-5 pb-4" id="eventPrizePool">
                 <div className="container">
                     <h1 className="text-dark">Prize Pool</h1>
-                    <p>{event.prizePool}</p>
+                    <h5 className="mt-3 display-5">{event.prizePool}</h5>
                     {/* {event.format} */}
                 </div>
             </div> : null}
-            <div className="container-fluid py-5" id="eventFormat">
+            <div className="container-fluid pb-5 mt-4" id="eventFormat">
                 <div className="container">
                     <h1 className="text-dark">Format</h1>
                     <a href={event.format} className="btn btn-dark btn-lg mt-4">Link to D2C</a>
