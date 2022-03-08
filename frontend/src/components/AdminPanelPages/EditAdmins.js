@@ -103,7 +103,7 @@ export default function EditAdmins() {
                                         {admins.map(admin => (
                                             <div className="col" key={admin._id}>
                                                 <div className="card mb-5">
-                                                    <img src='./profile.svg' className="card-img-top" />
+                                                    <img src='./profile.svg' className="card-img-top" alt="Admin"/>
                                                     <div className="card-body">
                                                         <h5 className="card-title">{admin.username}</h5>
                                                         <h5 className="card-title">{admin.email}</h5>

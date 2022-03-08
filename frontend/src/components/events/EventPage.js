@@ -5,7 +5,7 @@ import "./EventPage.css";
 
 const EventPage = (props) => {
     const { eventId } = useParams();
-    console.log(props.data);
+    // console.log(props.data);
     // TODO: change function below to check for id instead of event name
     const [event] = useState(props.data.find((event) => (event._id === eventId)));
     // console.log(event);
