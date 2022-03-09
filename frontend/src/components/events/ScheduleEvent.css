@@ -1,5 +1,10 @@
 table {
     max-width: 400px;
-    background-color: white;
-    border-color: black;
+    background-color: rgba(75, 96, 153, 0.308);
+    /* border-radius: 20px; */
+    /* border-color: black; */
+}
+tbody{
+    color: rgba(255, 255, 255, 0.726);
+    
 }

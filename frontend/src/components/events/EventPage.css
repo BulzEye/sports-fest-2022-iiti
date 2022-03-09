@@ -4,7 +4,7 @@ div#eventHeader {
     background-size: cover;
     /* background-attachment: fixed; */
     background-color: beige;
-    padding-top: 28%;
+    padding-top: 18%;
     padding-bottom: 10%;
     /* height: 100vh; */
 }
@@ -20,16 +20,27 @@ div#eventHeader h1.title {
     }
 
     div#eventHeader {
-        padding-top: 15%;
+        padding-top: 8%;
     }
 }
 
 div#eventSchedule {
-    background-color: darkseagreen;
+    background-image: url(/public/divbg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
 }
 
 div#eventSchedule .container {
-    background-color: rgba(192, 219, 192, 0.6);
+    background-color: rgba(255, 255, 255, 0.144);
+}
+
+div#eventSchedule .sched {
+    font-size: 4em;
+    color: white;
+	/* -webkit-text-stroke: 1px #ffffff; */
 }
 
 div#eventDescription {
@@ -47,3 +58,33 @@ div.eventPage .btn:hover {
     box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 }
 
+div.last {
+    padding: 50px;
+    background-image: linear-gradient(
+        100deg,
+        rgba(0, 181, 253, 0.13) 40%,
+        rgba(61, 53, 134, 0.13) 60%
+    );
+}
+
+
+div#eventPrizePool .ppool {
+    font-size: 4em;
+    font-weight: bolder;
+    background-image: url(/public/text.jpg);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}
+
+div#eventFormat {
+    margin-top: 60px;
+    /* margin-bottom: 20px; */
+}
+
+div#eventFormat .format {
+    font-size: 4em;
+    font-weight: bolder;
+    background-image: url(/public/text.jpg);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+}

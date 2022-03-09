@@ -31,8 +31,9 @@ const EventPage = (props) => {
                 </div>
             </div>
             <div className="container-fluid py-5" id="eventSchedule">
+
                 <div className="container py-5">
-                    <h1 className="text-dark">Schedule</h1>
+                    <h1 className="sched">Schedule</h1>
                     {/* <div className="pt-4">
                         Fixtures: 
                         <a href={event.fixtures} target="_blank" rel="noreferrer" className="mt-5">Link</a>
@@ -41,23 +42,25 @@ const EventPage = (props) => {
                         <ScheduleEvent data={event} />
                     </div>
                     {(event.fixtures) ? <div className="eventFixtures mt-5">
-                        <h2>Fixtures</h2>
-                        <a href={event.fixtures} target="_blank" rel="noreferrer" className="btn btn-dark mt-3">Link</a>
+                        {/* <h2>Fixtures</h2> */}
+                        <a href={event.fixtures} target="_blank" rel="noreferrer" className="btn btn-primary btn-lg mt-4">Fixtures</a>
                     </div> : null}
                 </div>
             </div>
-            {(event.prizePool) ? <div className="container-fluid pt-5 pb-4" id="eventPrizePool">
-                <div className="container">
-                    <h1 className="text-dark">Prize Pool</h1>
-                    <h5 className="mt-3 display-5">{event.prizePool}</h5>
-                    {/* {event.format} */}
-                </div>
-            </div> : null}
-            <div className="container-fluid pb-5 mt-4" id="eventFormat">
-                <div className="container">
-                    <h1 className="text-dark">Format</h1>
-                    <a href={event.format} className="btn btn-dark btn-lg mt-4">Link to D2C</a>
-                    {/* {event.format} */}
+            <div className="last">
+                {(event.prizePool) ? <div className="container-fluid pt-5 pb-4" id="eventPrizePool">
+                    <div className="container">
+                        <h1 className="ppool">Prize Pool</h1>
+                        <h5 className="mt-3 display-5">{event.prizePool}</h5>
+                        {/* {event.format} */}
+                    </div>
+                </div> : null}
+                <div className="container-fluid pb-5 mt-4" id="eventFormat">
+                    <div className="container">
+                        <h1 className="format">Format</h1>
+                        <a href={event.format} className="btn btn-light btn-lg mt-4">Link to D2C</a>
+                        {/* {event.format} */}
+                    </div>
                 </div>
             </div>
         </div>
