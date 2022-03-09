@@ -45,7 +45,7 @@ const EditEvents = (props) => {
 
     const deleteEvent = id => {
         setLoading(true)
-        axios.delete(`/api/auth/events/${id}`, {
+        axios.delete(`/api/auth/event/${id}`, {
             headers: {
                 'authorization': authHeader
             }

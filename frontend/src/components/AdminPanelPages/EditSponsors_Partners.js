@@ -49,7 +49,7 @@ const EditSponsorsPartners = (props) => {
 
     const deleteElement = id => {
         setLoading(true)
-        axios.delete(`/api/auth/${type}/${id}`, {
+        axios.delete(`/api/auth/${type.toLowerCase()}/${id}`, {
             headers: {
                 'authorization': authHeader
             }
