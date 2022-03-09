@@ -1,5 +1,9 @@
 div#body {
-    padding-top: 5%;
+    padding-top: 3%;
+}
+
+div#body h1 {
+    color: black;
 }
 
 a.sponsor-link-lakshya {
@@ -30,4 +34,27 @@ a.sponsor-link-lakshya span.link-text::after {
 a.sponsor-link-lakshya:hover span.link-text::after {
     width: 100%;
     background: gray;
+}
+
+a.upArrow {
+    display: block;
+    text-decoration: none;
+    position: fixed;
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    
+    bottom: 3vw;
+    right: 3vw;
+    background-color: rgba(10, 10, 10);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    transition: 0.2s background-color, 0.2s color;
+}
+
+a.upArrow:hover {
+    color: white;
+    background-color: rgba(140, 140, 140);
 }

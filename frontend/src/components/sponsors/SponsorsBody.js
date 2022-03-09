@@ -1,11 +1,28 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useLocation } from "react-router-dom";
 import "./SponsorsBody.css";
 
 const SponsorsBody = (props) => {
 
     let [pageType] = useState(props.type);
     const [sponsors] = useState(props.data);
-    console.log(sponsors);
+    // console.log(sponsors);
+    const sponsRef = useRef(null);
+    
+    const { hash } = useLocation();
+    // console.log(hash);
+    const hashID = hash.substring(1);
+    // console.log(hashID);
+
+    useEffect(() => {
+        if(hashID.trim().length > 0) {
+            setTimeout(() => {
+                sponsRef.current.scrollIntoView();
+                sponsRef.current.style.boxShadow = "0 .5rem 1rem rgba(0, 0, 0, .15)";
+            }, 1000)
+        }
+    }, []);
+
 
     return (
         <div className={`sponsorsBody`}>
@@ -16,7 +33,7 @@ const SponsorsBody = (props) => {
                         {
                             sponsors.map((sponsor) => (
                                 <div className="col" key={sponsor._id}>
-                                    <div className="card mb-5">
+                                    <div className="card mb-5" ref={(sponsor._id == hashID.trim()) ? sponsRef : undefined}>
                                         <div className="card-header">{sponsor.type + " " + pageType}</div>
                                         <img src={sponsor.image} alt="" className="card-img-top" />
                                         <div className="card-body">
@@ -35,6 +52,9 @@ const SponsorsBody = (props) => {
                     </div>
                 </div>
             </div>
+            <a className="upArrow" href="#body">
+                <i className="fa-solid fa-angle-up"></i>
+            </a>
         </div>
     );
 }
