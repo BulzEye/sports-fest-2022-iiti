@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ScheduleEvent from "./ScheduleEvent";
 import "./EventPage.css";
@@ -7,8 +7,10 @@ const EventPage = (props) => {
     const { eventId } = useParams();
     // console.log(props.data);
     // TODO: change function below to check for id instead of event name
-    const [event] = useState(props.data.find((event) => (event._id === eventId)));
-    // console.log(event);
+    const [event, setEvent] = useState(props.data.find((event) => (event._id === eventId)));
+    useEffect(() => {
+        setEvent(props.data.find((event) => (event._id === eventId)))
+    }, [eventId])
 
     return (
         <div className="eventPage">

@@ -1,8 +1,6 @@
 import './App.css';
 import HomeBody from './components/home/HomeBody';
 import Navbar from './components/Navbar';
-// import { TailSpin } from 'react-loader-spinner';
-// import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import Loader from './components/loader/Loader';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';

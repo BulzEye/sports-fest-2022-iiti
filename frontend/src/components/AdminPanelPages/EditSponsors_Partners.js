@@ -71,22 +71,26 @@ const EditSponsorsPartners = (props) => {
                     <div className="container addPartnerSponsor d-flex justify-content-center mb-5">
                         <div className="card addSP p-4">
                             <form onSubmit={handleSubmit}>
-                                <h1 className="mb-3 text-center" style={{"color": "black"}}>Add {type}</h1>
+                                <h1 className="mb-3 text-center" style={{ "color": "black" }}>Add {type}</h1>
                                 <div className="mb-3">
-                                    <label htmlFor="title" className="form-label">Name of {type}</label>
+                                    <label htmlFor="title" className="form-label">Name of the   {type}</label>
                                     <input required className="form-control" type="text" name="title" id="title" onChange={changeData} />
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="description" className="form-label">Description of {type}</label>
+                                    <label htmlFor="description" className="form-label">Description</label>
                                     <textarea required className="form-control" name="description" id="description" rows="4" onChange={changeData}></textarea>
                                 </div>
                                 <div className="mb-3">
-                                    <label htmlFor="image" className="form-label">{type} Logo Link</label>
+                                    <label htmlFor="image" className="form-label">{type}'s Logo Link</label>
                                     <input required type="text" className="form-control" name="image" id="image" onChange={changeData} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="type" className="form-label">{type} type</label>
                                     <input required type="text" className="form-control" name="type" id="type" onChange={changeData} />
+                                </div>
+                                <div className="mb-3">
+                                    <label htmlFor="website" className="form-label">Website Link:</label>
+                                    <input required type="website" className="form-control" name="website" id="website" onChange={changeData} />
                                 </div>
 
                                 <button type="submit" className="btn btn-primary">Submit</button>
@@ -100,7 +104,7 @@ const EditSponsorsPartners = (props) => {
 
                             {data.map(element => (
                                 <div className="col text-center" key={element._id}>
-                                    <SponsorPartner type={type} data={element} auth={true} deleteFunction={deleteElement} edit={true}/>
+                                    <SponsorPartner type={type} data={element} auth={true} deleteFunction={deleteElement} edit={true} />
                                 </div>
                             ))}
 

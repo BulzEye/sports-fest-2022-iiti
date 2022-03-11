@@ -1,5 +1,4 @@
 import "./Navbar.css";
-// import { NavHashLink as NavLink } from "react-router-hash-link";
 import { HashLink as Link } from "react-router-hash-link";
 import AdminPanel from "./AdminPanel/AdminPanel";
 import { useEffect, useState } from 'react';

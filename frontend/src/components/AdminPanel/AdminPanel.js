@@ -1,5 +1,4 @@
 import React from 'react';
-// import LoginButton from './LoginButton';
 import LogoutButton from './LogoutButton';
 import { Link } from 'react-router-dom';
 
@@ -19,7 +18,6 @@ const AdminPanel = (props) => {
                 <li> <LogoutButton className="dropdown-item" /></li>
             </ul>
         </div>
-            // : <LoginButton />
             : null
     )
 };

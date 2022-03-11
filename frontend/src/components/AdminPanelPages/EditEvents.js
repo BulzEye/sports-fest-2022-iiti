@@ -12,7 +12,7 @@ const EditEvents = (props) => {
     const [formData, setFormData] = useState({
         title: null,
         image: null,
-        schedule: null,           //saving file to DB
+        schedule: null,         
         form: null,
         description: null,
         format: null
